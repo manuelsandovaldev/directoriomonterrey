@@ -1,1 +1,3 @@
-<p>locals works!</p>
+@for (item of locals(); track $index) {
+    <app-card> [conector]="item"</app-card>
+}

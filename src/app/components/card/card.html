@@ -1,1 +1,17 @@
-<p>card works!</p>
+<mat-card class="example-card" appearance="outlined">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>{{conector?.title}}</mat-card-title>
+    </mat-card-header>
+    <img mat-card-image src="{{conector?.img}}" alt="Photo of a Shiba Inu">
+    <mat-card-content>
+      <p>
+        {{conector?.description}}
+      </p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button matButton>LIKE</button>
+      <button matButton>SHARE</button>
+    </mat-card-actions>
+  </mat-card>
+  
