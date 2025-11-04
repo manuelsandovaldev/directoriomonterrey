@@ -1,59 +1,10 @@
-# Myapp
+# Myapp - DirectorioMonterrey
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.5.
+# Descripcion
+Este proyecto esta hecho para los locales del centro comercial monterrey, locales de tecnologia heramientas dispositivos etc.
 
-## Development server
+1. Componentes basicos estos son "Card" "Btn" "Header" "Footer" "Searh", estos son los componentes basicos de mi aplicacion en este caso el componente "card" es un componente reutilizable.
 
-To start a local development server, run:
+2. Nav Menu este menu de navegacion es muy importante porque en casi todas las apps se necesita este menu, el menu de navegacion de creara en con un comando especifico, "ng generate @angular/material:navigation nav-menu", este manu necesita "vistas", que son las vistas cada pagina de app por ejemplo "inicio" "Contactame" etc, recuerda todos los componentes se crean con este comando "ng g c components/card". 
 
-```bash
-ng serve
-```
-
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+3. El componente reutilizable "card" este componente necesita el componente, un fichero ts llamado "data", y la vista donde sera renderizado.
