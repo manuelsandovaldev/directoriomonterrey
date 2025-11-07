@@ -1,17 +1,14 @@
 .sidenav-container {
-  height: 100%;
+  /* Asegura que el contenedor del menú ocupe todo el espacio visible */
+  height: 100vh;
 }
 
 .sidenav {
-  width: 200px;
+  /* Ancho del menú lateral cuando está abierto */
+  width: 250px;
 }
 
-.sidenav .mat-toolbar {
-  background: inherit;
-}
-
-.mat-toolbar.mat-primary {
-  position: sticky;
-  top: 0;
-  z-index: 1;
+.example-spacer {
+  /* Estilo clave: Empuja los elementos siguientes (favorite y share) hacia la derecha */
+  flex: 1 1 auto; 
 }
