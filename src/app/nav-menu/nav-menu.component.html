@@ -1,4 +1,4 @@
-<mat-sidenav-container class="sidenav-container">
+<mat-sidenav-container style="color: black;" class="sidenav-container">
   
   <mat-sidenav #drawer class="sidenav" fixedInViewport
     [attr.role]="'dialog'"
@@ -8,9 +8,13 @@
     <mat-toolbar>Menu</mat-toolbar> 
     
     <mat-nav-list>
-      <a mat-list-item routerLink="/locals" (click)="drawer.close()">LOCALES</a>
-      <a mat-list-item routerLink="/contac" (click)="drawer.close()">CONTACTANOS</a>
       <a mat-list-item routerLink="/home" (click)="drawer.close()">HOME</a>
+      <a mat-list-item routerLink="/locals" (click)="drawer.close()">LOCALES</a>
+      <a mat-list-item routerLink="/novedades" (click)="drawer.close()">NOVEDADES</a>
+      <a mat-list-item routerLink="/contac" (click)="drawer.close()">CONTACTANOS</a>
+
+
+      
     </mat-nav-list>
   
   </mat-sidenav>
