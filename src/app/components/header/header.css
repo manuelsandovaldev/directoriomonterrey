@@ -1,4 +1,8 @@
 .example-spacer {
     flex: 1 1 auto;
   }
-  
+
+  .app-title {
+    font-weight: 600;
+    margin-left: 15px;
+}

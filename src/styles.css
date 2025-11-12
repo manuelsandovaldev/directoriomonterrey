@@ -1,4 +1,18 @@
-/* You can add global styles to this file, and also import other style files */
+/* Puedes agregar estilos globales a este archivo, y también importar otros archivos de estilo */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+/* Estilos que ya tienes */
+.spacer {
+    flex: 1 1 auto;
+}
+
+html, body { 
+    height: 100%; 
+}
+
+/* El problema del contraste se resolvió en SASS, pero aquí defines tu fuente */
+body { 
+    margin: 0; 
+    font-family: Roboto, "Helvetica Neue", sans-serif; 
+}
+
+
