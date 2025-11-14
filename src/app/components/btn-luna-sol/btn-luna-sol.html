@@ -1,10 +1,10 @@
 
 <button class="theme-switch"
-        type="button"
+        type="button" 
         aria-label="Toggle theme"
         mat-icon-button
-        (click)="toggleTheme() "matTooltip="Toggle theme">
+        (click)="toggleTheme() "matTooltip="Toggle theme">  <!-- Esta linea lo que hace es que al dar clik se inicializa la funcion toggle theme -->
         <mat-icon>
-          {{ theme() === "light" ? "light_mode" : "dark_mode" }}
+          {{ theme() === "light" ? "light_mode" : "dark_mode" }}  <!-- Esta linea de codigo sirve para cambiar el icono del boton, osea si el tema es igual a ligth el icono sera light_mode y si no es igual a light el icono sera dark_mode -->
         </mat-icon>
 </button>
