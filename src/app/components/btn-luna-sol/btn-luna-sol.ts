@@ -2,11 +2,14 @@ import { Component, DOCUMENT, effect, inject, signal } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 
-export type Theme = 'light' | 'dark';
+export type Theme = 'light' | 'dark'; // esta linea exporta la clase "type" para que pueda ser usada en el html.
 
 @Component({
   selector: 'app-btn-luna-sol',
-  imports: [ MatButtonModule, MatIconModule ],
+  imports: [ 
+    MatButtonModule, // Importamos ButtonModule de angular material.
+    MatIconModule    // Importamos IconModule de angular material.
+  ],
   templateUrl: './btn-luna-sol.html',
   styleUrl: './btn-luna-sol.css',
 })
@@ -14,10 +17,13 @@ export class BtnLunaSol {
 
 
   
+  // el tema predeterminado sera dark (oscuro),
+  theme = signal<Theme>('dark'); 
 
-  theme = signal<Theme>('dark'); // el tema predeterminado sera dark (oscuro),
 
-  private _document = inject(DOCUMENT); // crea una variable privada llamada "_document" y sera igual al valor de "DOCUMENT" un elemento de "angular core",
+  // crea una variable privada llamada "_document" y sera igual al valor de "DOCUMENT" un elemento de "angular core",
+  private _document = inject(DOCUMENT); 
+
 
   constructor() { // lo que hace la funcion effect es que se ejecuta inmediatamente y despues de que el signal sea leido, entonces lo que dice es que si el tema es igual a "ligth" va a agregar la clase "light" al <html>, si el tema no es igual a "light" se quitara la clase "light" del <html>.  
     effect(() => {
