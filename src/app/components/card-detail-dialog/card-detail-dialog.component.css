@@ -1,0 +1,29 @@
+.dialog-container {
+  position: relative; /* Necesario para posicionar el botón de cierre */
+  padding: 0;
+  max-width: 90vw; /* Asegura que el diálogo no sea demasiado grande en pantallas pequeñas */
+}
+
+.close-button {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  z-index: 10; /* Se asegura de que esté por encima de la imagen */
+  /* El color del botón se hereda del tema de Material, así que no es necesario definirlo */
+}
+
+.large-card {
+  box-shadow: none !important; /* El diálogo ya provee la sombra y el fondo */
+  background: var(--card-background, #fff); /* Usa la variable de CSS si existe */
+}
+
+/* Ocultamos el header de mat-dialog-title que no estamos usando */
+.mat-mdc-dialog-title {
+    display: none;
+}
+
+/* Eliminamos el padding que agrega Material por defecto al contenido */
+.mat-mdc-dialog-content {
+    padding: 0 !important;
+    overflow: hidden; /* Evita barras de scroll inesperadas */
+}

@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
+import { MatIcon } from "@angular/material/icon";
 
 export interface cardInterface { // la interface
   title: string;
@@ -12,7 +13,7 @@ export interface cardInterface { // la interface
 
 @Component({
   selector: 'app-card',
-  imports: [MatCardModule, MatButtonModule],
+  imports: [MatCardModule, MatButtonModule, MatIcon],
   templateUrl: './card.html',
   styleUrl: './card.css'
 })
