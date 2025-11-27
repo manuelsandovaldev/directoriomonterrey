@@ -1,9 +1,24 @@
 .example-card {
-    max-width: 400px;
-  }
-  
-  .example-header-image {
-    background-image: url('https://material.angular.dev/assets/img/examples/shiba1.jpg');
-    background-size: cover;
-  }
-  
+  max-width: 400px;
+}
+
+.example-header-image {
+  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+  background-size: cover;
+}
+
+/* 
+ * Alineación del icono de Font Awesome dentro de un mat-icon-button
+ */
+.example-icon.favorite-icon {
+  /* Nos aseguramos de que el botón se comporte como un contenedor flexbox */
+  display: inline-flex;
+  align-items: center;      /* Centra el icono verticalmente */
+  justify-content: center;  /* Centra el icono horizontalmente */
+}
+
+.example-icon.favorite-icon fa-icon {
+  /* A veces, la altura de línea del icono interfiere con el centrado flex.
+     Con esto nos aseguramos de que no lo haga. */
+  line-height: 0;
+}
