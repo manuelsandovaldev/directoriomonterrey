@@ -1,0 +1,40 @@
+/*
+ * Estilos para el Toolbar de la página de inicio
+*/
+.home-toolbar {
+    /* --- 1. La imagen de fondo --- */
+    background-image: url('https://images.unsplash.com/photo-1543322778-90f3d8598739?q=80&w=2070&auto=format&fit=crop');
+  
+    /* --- 2. Ajuste de la imagen --- */
+    background-size: cover; /* Hace que la imagen cubra todo el espacio sin deformarse */
+    background-position: center; /* Centra la imagen para que se vea bien en todas las pantallas */
+  
+    /* --- 3. Superposición oscura para la legibilidad --- */
+    /* Creamos un gradiente negro semi-transparente que se pone ENCIMA de la imagen */
+    background-blend-mode: darken;
+    background-color: rgba(0, 0, 0, 0.5); /* 0.5 es un 50% de oscuridad. Puedes jugar con este valor (0.4, 0.6, etc.) */
+  
+    /* --- 4. Estilos que ya teníamos --- */
+    height: 250px; /* La altura que le quieras dar */
+    color: white; /* Aseguramos que el texto sea blanco para que contraste */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /*
+   * Estilos para el contenido de texto dentro del toolbar
+  */
+  .toolbar-content {
+    width: 100%;
+    text-align: center;
+    /* Hacemos que el texto tenga una sombra sutil para que resalte aún más sobre el fondo */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  }
+  
+  .toolbar-content h1 {
+    margin-bottom: 8px;
+    font-size: 2.5rem; /* Hacemos la fuente un poco más grande */
+    font-weight: 600;
+  }
+  
