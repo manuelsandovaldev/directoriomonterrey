@@ -1,3 +1,5 @@
-@for (item of locals(); track $index) {
-    <app-card [conector]="item"></app-card> <!-- la variable conector agarra los items de la interface y los muestra, recuerda que en "card.html" estan siendo bingdados -->
-}
+<div class="card-container">
+  @for (item of locals(); track $index) {
+    <app-card [conector]="item"></app-card>
+  }
+</div>

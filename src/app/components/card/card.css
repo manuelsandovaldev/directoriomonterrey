@@ -1,5 +1,7 @@
 .example-card {
-  max-width: 400px;
+  max-width: 600px;
+  flex-shrink: 0; /* Evita que la tarjeta se encoja en un contenedor flex */
+  position: relative; /* Needed for absolute positioning of the button */
 }
 
 .example-header-image {
@@ -7,18 +9,18 @@
   background-size: cover;
 }
 
-/* 
- * Alineación del icono de Font Awesome dentro de un mat-icon-button
- */
+.more-button {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+}
+
 .example-icon.favorite-icon {
-  /* Nos aseguramos de que el botón se comporte como un contenedor flexbox */
   display: inline-flex;
-  align-items: center;      /* Centra el icono verticalmente */
-  justify-content: center;  /* Centra el icono horizontalmente */
+  align-items: center;
+  justify-content: center;
 }
 
 .example-icon.favorite-icon fa-icon {
-  /* A veces, la altura de línea del icono interfiere con el centrado flex.
-     Con esto nos aseguramos de que no lo haga. */
   line-height: 0;
 }
