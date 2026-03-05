@@ -1,0 +1,24 @@
+
+<div class="dialog-container">
+  <div class="dialog-header">
+    <h2>{{ data.title }}</h2>
+    <button mat-icon-button [mat-dialog-close]="true" aria-label="Close dialog">
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+  <mat-dialog-content class="dialog-content">
+    <img [src]="data.imagenes[0]" alt="Photo of {{ data.title }}" class="dialog-image">
+    
+    <h3>Horarios de atención:</h3>
+    <ul class="horarios-list">
+      @for (horario of data.horarios; track $index) {
+        <li>
+          <strong>{{ horario.dias }}:</strong> Abierto de {{ horario.apertura }}:00 a {{ horario.cierre }}:00
+        </li>
+      }
+    </ul>
+
+    <p class="description">{{ data.description }}</p>
+    <p><strong>Teléfono:</strong> {{ data.phone }}</p>
+  </mat-dialog-content>
+</div>

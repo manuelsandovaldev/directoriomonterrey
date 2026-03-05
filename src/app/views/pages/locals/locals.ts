@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
-import { datos } from '../../data/datos';
-import { Card } from '../../components/card/card';
+import { negocios } from '../../../data/datos';
+import { Card } from '../../../components/build/card/card';
 
 @Component({
   selector: 'app-locals',
@@ -11,5 +11,5 @@ import { Card } from '../../components/card/card';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LocalsComponent {
-    public locals = signal(datos);
+    public locals = signal(negocios);
 }

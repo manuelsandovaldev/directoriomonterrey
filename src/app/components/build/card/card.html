@@ -7,20 +7,25 @@
       <mat-icon>more_vert</mat-icon>
     </button>
   </mat-card-header>
-  <img mat-card-image [src]="conector().img" alt="Photo of {{ conector().title }}">
+  <img mat-card-image [src]="conector().imagenes[0]" alt="Photo of {{ conector().title }}">
   <mat-card-content>
     <p>
       {{ conector().description }}
     </p>
   </mat-card-content>
+  
   <mat-card-actions>
     <button mat-button>LIKE</button>
+
     <button mat-button>SHARE</button>
+
     <a matIconButton href="https://www.instagram.com/" target="_blank" class="example-icon favorite-icon" aria-label="Visita nuestro Instagram">
       <fa-icon [icon]="faInstagram" size="lg"></fa-icon>
     </a>
+
     <a matIconButton href="https://www.facebook.com/" target="_blank" class="example-icon favorite-icon" aria-label="Visita nuestro Facebook">
       <fa-icon [icon]="faFacebook" size="lg"></fa-icon>
     </a>
+
   </mat-card-actions>
 </mat-card>

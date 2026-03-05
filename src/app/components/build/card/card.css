@@ -1,0 +1,41 @@
+.example-card {
+  position: relative; /* Mantiene el posicionamiento para el botón */
+  cursor: pointer; /* Cambia el cursor para indicar que la tarjeta es interactiva */
+  
+  /* Sombra por defecto */
+  box-shadow: 0 3px 6px rgba(0,0,0,0.12), 0 2px 4px rgba(0,0,0,0.18);
+  
+  /* Transición para una animación suave */
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+
+/* Efecto al pasar el ratón por encima */
+.example-card:hover {
+  /* Levanta la tarjeta 5px */
+  transform: translateY(-5px);
+  
+  /* Aumenta la sombra para dar más profundidad */
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+
+.example-header-image {
+  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+  background-size: cover;
+}
+
+.more-button {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+}
+
+/* Estos estilos son para los iconos que eliminamos, los podemos dejar por si se vuelven a usar */
+.example-icon.favorite-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.example-icon.favorite-icon fa-icon {
+  line-height: 0;
+}

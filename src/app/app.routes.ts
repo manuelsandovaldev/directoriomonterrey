@@ -2,10 +2,9 @@
 
 import { Routes } from '@angular/router';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
-import { LocalsComponent } from './vistas/locals/locals';
-import { Contac } from './vistas/contac/contac';
-import { Home } from './vistas/home/home';
-import { Novedades } from './components/novedades/novedades';
+import { LocalsComponent } from './views/pages/locals/locals';
+import { Contac } from './views/pages/contac/contac';
+import { Home } from './views/pages/home/home';
 
 
 export const routes: Routes = [
@@ -19,7 +18,6 @@ export const routes: Routes = [
             { path: 'home', component: Home },
             { path: 'locals', component: LocalsComponent },
             { path: 'contac', component: Contac },
-            { path: 'novedades', component: Novedades },
             { path: '**', redirectTo: 'home' } 
         ]
     }

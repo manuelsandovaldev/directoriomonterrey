@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { Novedades } from './novedades';
+import { LocalsAvalible } from './locals-avalible';
 
-describe('Novedades', () => {
-  let component: Novedades;
-  let fixture: ComponentFixture<Novedades>;
+describe('LocalsAvalible', () => {
+  let component: LocalsAvalible;
+  let fixture: ComponentFixture<LocalsAvalible>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [Novedades]
+      imports: [LocalsAvalible]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(Novedades);
+    fixture = TestBed.createComponent(LocalsAvalible);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

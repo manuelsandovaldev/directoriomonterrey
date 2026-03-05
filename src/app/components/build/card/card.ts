@@ -6,8 +6,8 @@ import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faInstagram, faFacebook } from '@fortawesome/free-brands-svg-icons';
-import { cardInterface } from '../../interfaces/card.interface';
-import { CardDialogComponent } from '../card-dialog/card-dialog.component';
+import { cardInterface } from '../../../interfaces/card.interface';
+import { CardDialogComponent } from './card-dialog/card-dialog.component';
 
 @Component({
   selector: 'app-card',

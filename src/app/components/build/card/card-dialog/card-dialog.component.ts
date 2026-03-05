@@ -1,7 +1,7 @@
 
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogModule } from '@angular/material/dialog';
-import { cardInterface } from '../../interfaces/card.interface';
+import { cardInterface } from '../../../../interfaces/card.interface';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 

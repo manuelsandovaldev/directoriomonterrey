@@ -16,3 +16,15 @@ body {
 }
 
 
+
+
+.card-container {
+    display: grid;
+    /* Crea columnas automáticas con un tamaño mínimo de 300px y máximo de 1fr (fracción del espacio disponible) */
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px; /* Espacio entre las tarjetas */
+    padding: 20px; /* Espacio alrededor del contenedor */
+    max-width: 1200px; /* Un ancho máximo para que no se estire demasiado en pantallas grandes */
+    /* margin: 0 auto; <-- Esta línea se elimina para alinear el contenido a la izquierda */
+  }
+ 
