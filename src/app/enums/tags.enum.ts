@@ -13,6 +13,7 @@ export enum TagsEnum {
   FAMILIAR = 'Ambiente Familiar',
 
   // --- Tecnología ---
+  TECNOLOGIA = 'Tecnologia',
   GAMING = 'Gaming',
   COMPUTADORES = 'Computadores',
   CELULARES = 'Celulares',

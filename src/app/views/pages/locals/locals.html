@@ -1,5 +1,5 @@
 <div class="card-container">
   @for (item of locals(); track $index) {
-    <app-card [conector]="item"></app-card>
+    <app-card [conector]="item" (cardClick)="onCardClicked($event)"></app-card>
   }
 </div>

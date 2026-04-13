@@ -1,35 +1,37 @@
 
-import { ChangeDetectionStrategy, Component, input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input, output } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
-import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faInstagram, faFacebook } from '@fortawesome/free-brands-svg-icons';
 import { cardInterface } from '../../../interfaces/card.interface';
-import { CardDialogComponent } from './card-dialog/card-dialog.component';
 
 @Component({
   selector: 'app-card',
-  imports: [MatCardModule, MatButtonModule, FontAwesomeModule, MatDialogModule, MatIconModule],
+  // Se elimina MatDialogModule de los imports
+  imports: [MatCardModule, MatButtonModule, FontAwesomeModule, MatIconModule],
   templateUrl: './card.html',
   styleUrl: './card.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Card {
+  // ENTRADA: Recibe los datos del negocio. Esto no se ha cambiado.
   public conector = input.required<cardInterface>();
+
+  // SALIDA: Creamos un emisor que notificará el ID (string) del negocio.
+  public cardClick = output<string>();
+
+  // Iconos de redes sociales. Esto no cambia.
   public faInstagram = faInstagram;
   public faFacebook = faFacebook;
 
-  constructor(public dialog: MatDialog) {}
+  // El constructor ahora está limpio, ya no necesita 'MatDialog'.
+  constructor() {}
 
-  openDialog(): void {
-    this.dialog.open(CardDialogComponent, {
-      data: this.conector(),
-      width: '80%',
-      maxWidth: '500px',
-      maxHeight: '90vh',
-      panelClass: 'custom-dialog-container'
-    });
+  // Esta es la NUEVA función que se llamará desde el botón en el HTML.
+  public onCardClick(): void {
+    // Cuando se llama, emite el ID del negocio para que el componente padre pueda escucharlo.
+    this.cardClick.emit(this.conector().id);
   }
 }

@@ -1,0 +1,95 @@
+
+<!-- 
+  Aquí es donde nuestro componente de botón reutilizable entra en acción.
+  Lo colocamos en la parte superior para una navegación fácil e intuitiva.
+-->
+<app-btn-back></app-btn-back>
+
+@if (businessDetails(); as business) {
+  <div class="business-detail-page">
+
+    <!-- Cabecera con Logo e Info -->
+    <header class="business-header">
+      <div class="logo-container">
+        <img [src]="business.img" alt="Logo de {{ business.title }}">
+      </div>
+      <div class="info-container">
+        <h1>{{ business.title }}</h1>
+        <p class="description">{{ business.description }}</p>
+        <ul class="contact-info">
+          <li><strong>Piso:</strong> {{ business.piso }}</li>
+          <li><strong>Ubicación:</strong> {{ business.ubicacion }}</li>
+          <li><strong>Teléfono:</strong> {{ business.phone }}</li>
+        </ul>
+      </div>
+    </header>
+
+    <!-- Galería de Ambiente -->
+    <section class="ambience-gallery">
+        <h2>Galería del Local</h2>
+        <div class="image-grid">
+            @for (image of business.imagenes.slice(0, 3); track $index) {
+                <img [src]="image" alt="Ambiente de {{ business.title }}">
+            }
+        </div>
+    </section>
+
+    <!-- Sección Dinámica Basada en Datos -->
+    <main class="dynamic-content">
+
+      <!-- Renderiza el CATÁLOGO si existe -->
+      @if (business.catalogo; as catalogo) {
+        <section class="content-section">
+          <h2>{{ catalogo.tituloSeccion }}</h2>
+          <div class="product-grid">
+            @for (item of catalogo.items; track item.id) {
+              <div class="product-placeholder">
+                <img [src]="item.imagen" alt="Imagen de {{ item.nombre }}">
+                <div class="product-info">
+                  <h3>{{ item.nombre }}</h3>
+                  <p>{{ item.descripcion }}</p>
+                  <span class="price">{{ item.precio | currency:'USD' }}</span>
+                </div>
+              </div>
+            }
+          </div>
+        </section>
+      }
+
+      <!-- Renderiza los SERVICIOS si existen -->
+      @if (business.servicios; as servicios) {
+        <section class="content-section">
+          <h2>{{ servicios.servicio }}</h2>
+          <ul class="feature-list">
+            @for (item of servicios.items; track $index) {
+              <li>{{ item }}</li>
+            }
+          </ul>
+        </section>
+      }
+
+      <!-- Renderiza las CARACTERÍSTICAS si existen -->
+      @if (business.caracteristicas; as caracteristicas) {
+        @for (grupo of caracteristicas; track $index) {
+          <section class="content-section">
+            <h2>{{ grupo.nombre }}</h2>
+            <ul class="feature-list">
+              @for (item of grupo.items; track $index) {
+                <li>{{ item }}</li>
+              }
+            </ul>
+          </section>
+        }
+      }
+
+    </main>
+
+  </div>
+} @else {
+  <!-- Contenedor para "Negocio no encontrado" -->
+  <div class="not-found-container">
+    <h2>Negocio no encontrado</h2>
+    <p>El negocio que buscas no existe o ha sido eliminado.</p>
+    <a routerLink="/locals">Volver al listado</a>
+  </div>
+}

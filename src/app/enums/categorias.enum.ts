@@ -1,4 +1,5 @@
 export enum CategoriasEnum {
+  TECNOLOGIA = 'Tecnología',
   CELULARES_Y_ACCESORIOS = 'Celulares y Accesorios',
   COMPUTADORES = 'Computadores',
   COMIDAS = 'Comidas',

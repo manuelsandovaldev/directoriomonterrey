@@ -1,0 +1,27 @@
+
+/*
+  Este es el nuevo estilo minimalista. Lo convertimos en un botón de ícono
+  flotante que se puede superponer sobre otros elementos.
+*/
+.back-icon-button {
+  position: absolute; /* ¡La clave! Lo saca del flujo normal. */
+  top: 1rem;       /* Se pega a 1rem de la parte superior. */
+  left: 1rem;      /* Se pega a 1rem de la izquierda. */
+  
+  background: transparent; /* Sin fondo. */
+  border: none;            /* Sin borde. */
+  padding: 0.5rem;         /* Un poco de espacio para hacer clic fácil. */
+  cursor: pointer;
+  z-index: 10;           /* Asegura que esté por encima de otros elementos. */
+}
+
+.back-icon-button .arrow {
+  font-size: 2rem;  /* Un ícono de flecha grande y claro. */
+  color: #333;       /* Color oscuro para buena visibilidad. */
+  transition: transform 0.2s ease-out; /* Animación sutil. */
+}
+
+.back-icon-button:hover .arrow {
+  transform: translateX(-3px); /* Pequeño movimiento a la izquierda al pasar el ratón. */
+  color: #007bff; /* Cambia a un color de acento. */
+}

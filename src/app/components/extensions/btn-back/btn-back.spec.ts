@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { LocalsAvalible } from './locals-avalible';
+import { BtnBack } from './btn-back';
 
-describe('LocalsAvalible', () => {
-  let component: LocalsAvalible;
-  let fixture: ComponentFixture<LocalsAvalible>;
+describe('BtnBack', () => {
+  let component: BtnBack;
+  let fixture: ComponentFixture<BtnBack>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [LocalsAvalible]
+      imports: [BtnBack]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(LocalsAvalible);
+    fixture = TestBed.createComponent(BtnBack);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

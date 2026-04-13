@@ -3,7 +3,8 @@
   <mat-card-header>
     <div mat-card-avatar class="example-header-image"></div>
     <mat-card-title style="color: black;">{{ conector().title }}</mat-card-title>
-    <button mat-icon-button class="more-button" (click)="openDialog()" aria-label="Open details">
+    <!-- CAMBIO: Ahora el botón llama a onCardClick() en lugar de openDialog() -->
+    <button mat-icon-button class="more-button" (click)="onCardClick()" aria-label="Open details">
       <mat-icon>more_vert</mat-icon>
     </button>
   </mat-card-header>

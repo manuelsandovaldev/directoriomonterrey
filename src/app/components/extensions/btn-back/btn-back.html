@@ -1,0 +1,9 @@
+
+<!--
+  Ahora usamos el componente <fa-icon> de Font Awesome.
+  [icon]="icon" conecta con la propiedad `public icon = faArrowLeft;`
+  de nuestro archivo .ts
+-->
+<button (click)="goBack()" class="back-icon-button">
+  <fa-icon [icon]="icon"></fa-icon>
+</button>

@@ -1,0 +1,117 @@
+
+:host {
+  display: block;
+  width: 100%;
+  background-color: #f9f9f9; /* Un fondo sutil para toda la página */
+}
+
+/* Contenedor principal de la página de detalles */
+.business-detail-page {
+  /* ELIMINAMOS max-width para que ocupe todo el espacio disponible */
+  width: 100%;
+  margin: 0 auto; /* Centrado horizontalmente */
+  background: white;
+  /* Mantenemos una sombra suave para darle elevación */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+/* --- Cabecera y Galería (con ajustes de padding) --- */
+.business-header {
+  display: flex;
+  gap: 2.5rem;
+  align-items: center;
+  padding: 2.5rem; /* Aumentamos el padding para más aire */
+  border-bottom: 1px solid #eee;
+}
+
+.logo-container img {
+  width: 200px;  /* Hacemos el logo un poco más grande */
+  height: 200px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 5px solid white;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.12);
+}
+
+.info-container h1 { font-size: 3rem; font-weight: 700; margin: 0 0 0.5rem; }
+.info-container .description { font-size: 1.1rem; color: #555; margin-bottom: 1.5rem; max-width: 60ch; }
+.contact-info { list-style: none; padding: 0; margin: 0; font-size: 1rem;}
+.contact-info li { margin-bottom: 0.5rem; }
+
+.ambience-gallery {
+  padding: 2.5rem;
+  border-bottom: 1px solid #eee;
+}
+.ambience-gallery h2 { margin: 0 0 1.5rem 0; font-size: 1.8rem; font-weight: 600; }
+
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Más responsivo */
+  gap: 1.5rem;
+}
+.image-grid img { width: 100%; height: 250px; object-fit: cover; border-radius: 12px; }
+
+/* --- Sección de Contenido Dinámico --- */
+.dynamic-content {
+  padding: 2.5rem;
+}
+
+.content-section {
+  margin-bottom: 3rem; /* Aumentamos el espacio entre secciones */
+}
+
+.content-section h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 1.5rem;
+  border-bottom: 3px solid #007bff;
+  padding-bottom: 0.5rem;
+  display: inline-block;
+}
+
+/* Grid de productos (sin cambios, ya es responsivo) */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Placeholder de producto (sin cambios) */
+.product-placeholder {
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: box-shadow 0.3s;
+}
+.product-placeholder:hover { box-shadow: 0 6px 20px rgba(0,0,0,0.1); }
+.product-placeholder img { width: 100%; height: 200px; object-fit: cover; }
+.product-info { padding: 1rem; }
+.product-info h3 { margin: 0 0 0.5rem 0; font-size: 1.25rem; color: #333; }
+.product-info p { font-size: 0.9rem; color: #777; margin: 0 0 1rem 0; }
+.product-info .price { font-size: 1.4rem; font-weight: bold; color: #007bff; }
+
+/* Lista de features (sin cambios) */
+.feature-list {
+  list-style-type: none;
+  padding: 0;
+  columns: 2;
+  gap: 1rem;
+}
+
+.feature-list li {
+  background-color: #f8f9fa;
+  padding: 0.75rem 1.25rem;
+  border-radius: 8px;
+  margin-bottom: 0.75rem;
+  border-left: 3px solid #007bff;
+}
+
+/* --- Responsividad --- */
+@media (max-width: 768px) {
+  .business-header { flex-direction: column; text-align: center; }
+  .feature-list { columns: 1; }
+}
+
+/* Contenedor de "No Encontrado" (sin cambios) */
+.not-found-container { text-align: center; padding: 3rem; }
