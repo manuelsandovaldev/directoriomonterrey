@@ -1,0 +1,47 @@
+:host {
+  display: block;
+}
+
+.bottom-nav-toolbar {
+  /* --- Posicionamiento Fijo --- */
+  position: fixed; /* Clave para que siempre esté visible */
+  bottom: 0;       /* La pegamos a la parte inferior */
+  left: 0;         /* La extendemos a la izquierda */
+  right: 0;        /* La extendemos a la derecha */
+  z-index: 100;    /* Nos aseguramos de que esté por encima de otros elementos */
+
+  /* --- Estilo Visual --- */
+  display: flex;
+  justify-content: space-around; /* Distribuimos los iconos equitativamente */
+  background-color: var(--mat-sidenav-content-background-color, white); /* Usa el color de fondo del tema */
+  border-top: 1px solid rgba(0,0,0,0.12); /* Borde superior sutil */
+}
+
+.nav-button {
+  display: flex;
+  flex-direction: column; /* Icono arriba, texto abajo */
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: #757575; /* Color gris para los iconos inactivos */
+  font-size: 12px;
+  padding: 8px 12px;
+  border-radius: 4px;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.nav-button:hover {
+  background-color: rgba(0,0,0,0.04);
+}
+
+.nav-button mat-icon {
+  font-size: 24px;
+  width: 24px;
+  height: 24px;
+  margin-bottom: 2px;
+}
+
+/* --- Estilo para el botón activo --- */
+.active-link {
+  color: var(--mat-primary-color, #3f51b5); /* Usa el color primario del tema */
+}
