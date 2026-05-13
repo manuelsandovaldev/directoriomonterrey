@@ -1,11 +1,11 @@
 import { Component, signal } from '@angular/core';
+import { HeaderComponent } from './components/extensions/header/header';
 import { RouterOutlet } from '@angular/router';
-import { barNavegation } from './bar-navegation/bar-navegation';
 import { MatSidenavModule } from "@angular/material/sidenav";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, MatSidenavModule, barNavegation],
+  imports: [RouterOutlet, MatSidenavModule, HeaderComponent],
   standalone: true,
   providers: [],
   templateUrl: './app.html',

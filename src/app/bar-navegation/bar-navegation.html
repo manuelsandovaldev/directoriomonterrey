@@ -1,18 +1,27 @@
+<!-- 
+  Este es el contenedor para el contenido de las páginas hijas (Home, Locals, etc.).
+-->
+<div class="layout-content">
+  <!-- AQUÍ se renderizarán los componentes hijos como Home, Locals, etc. -->
+  <router-outlet></router-outlet>
+</div>
+
+<!-- 
+  Esta es la barra de navegación que se mantiene fija en la parte inferior.
+-->
 <mat-toolbar class="bottom-nav-toolbar">
-  
-    <a routerLink="/home" routerLinkActive="active-link" class="nav-button">
-      <mat-icon>home</mat-icon>
-      <span>Home</span>
-    </a>
-  
-    <a routerLink="/locals" routerLinkActive="active-link" class="nav-button">
-      <mat-icon>storefront</mat-icon>
-      <span>Locales</span>
-    </a>
-  
-    <a routerLink="/contac" routerLinkActive="active-link" class="nav-button">
-      <mat-icon>contact_support</mat-icon>
-      <span>Contacto</span>
-    </a>
-  
-  </mat-toolbar>
+  <a routerLink="/home" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}" class="nav-button">
+    <mat-icon>home</mat-icon>
+    <span>Home</span>
+  </a>
+
+  <a routerLink="/locals" routerLinkActive="active-link" class="nav-button">
+    <mat-icon>storefront</mat-icon>
+    <span>Locales</span>
+  </a>
+
+  <a routerLink="/contac" routerLinkActive="active-link" class="nav-button">
+    <mat-icon>contact_support</mat-icon>
+    <span>Contacto</span>
+  </a>
+</mat-toolbar>
