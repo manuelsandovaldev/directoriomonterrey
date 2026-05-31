@@ -1,9 +1,11 @@
 <mat-toolbar color="primary">
-    
 
-  <span class="app-title">Directorio Monterrey</span>
+  @if (showBackButton()) {
+  <app-btn-back></app-btn-back>
+  }
+  <span class="app-title" [style.margin-left]="showBackButton() ? '8px' : '0'">Directorio Monterrey</span>
 
-  <span class="spacer" ></span>
+  <span class="spacer"></span>
 
   <app-btn-luna-sol></app-btn-luna-sol>
 

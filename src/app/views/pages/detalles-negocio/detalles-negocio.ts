@@ -1,34 +1,30 @@
-
-import { ChangeDetectionStrategy, Component, signal, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, input } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ActivatedRoute, RouterModule } from '@angular/router';
+import { RouterModule } from '@angular/router';
 
 // --- Interfaces y Datos ---
 import { cardDT } from '../../../interfaces/productoDT.interface';
 import { negociosDetalle } from '../../../data/datosDT';
 
-// --- COMPONENTE DEL BOTÓN ---
-// Importamos nuestro botón reutilizable.
-import { BtnBack } from '../../../components/extensions/btn-back/btn-back';
-
 @Component({
   selector: 'app-detalles-negocio',
   standalone: true,
-  // Lo añadimos a los imports para poder usar <app-btn-back> en el HTML.
-  imports: [CommonModule, RouterModule, BtnBack],
+  imports: [CommonModule, RouterModule],
   templateUrl: './detalles-negocio.html',
   styleUrls: ['./detalles-negocio.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DetallesNegocio {
-  private route = inject(ActivatedRoute);
-  public businessDetails = signal<cardDT | undefined>(undefined);
 
-  constructor() {
-    const businessId = this.route.snapshot.paramMap.get('id');
-    if (businessId) {
-      const foundBusiness = negociosDetalle.find(b => b.id === businessId);
-      this.businessDetails.set(foundBusiness);
-    }
-  }
+  // 1. Recibe el ID de la URL automáticamente gracias a Angular (Signal Input)
+  public id = input<string | undefined>();
+
+  // 2. Computed de Google: Busca el negocio solo cuando el id() cambia. ¡Ultra eficiente!
+  public businessDetails = computed<cardDT | undefined>(() => {
+    const currentId = this.id();
+    if (!currentId) return undefined;
+
+    // Buscamos el negocio convirtiendo a String para que no falle
+    return negociosDetalle.find(b => String(b.id) === String(currentId));
+  });
 }

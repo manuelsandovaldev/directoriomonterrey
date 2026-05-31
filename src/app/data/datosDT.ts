@@ -3,9 +3,7 @@ import { cardDT } from '../interfaces/productoDT.interface';
 import { CategoriasEnum } from '../enums/categorias.enum';
 import { TagsEnum } from '../enums/tags.enum';
 
-// -----------------------------------------------------------------------------
-// LISTA COMPLETA CON TODOS LOS DETALLES DE CADA NEGOCIO
-// -----------------------------------------------------------------------------
+
 export const negociosDetalle: cardDT[] = [
   // --- Gimnasio Animal X (Detalle) ---
   {
@@ -42,6 +40,8 @@ export const negociosDetalle: cardDT[] = [
     estadoActivo: true
   },
 
+
+
   // --- Crepes & Waffles (Detalle) ---
   {
     id: 'crepes-waffles-250',
@@ -69,8 +69,8 @@ export const negociosDetalle: cardDT[] = [
       ]
     },
     caracteristicas: [{
-        nombre: "Ambiente",
-        items: ["Familiar", "Terraza", "Pet-Friendly (solo en terraza)"]
+      nombre: "Ambiente",
+      items: ["Familiar", "Terraza", "Pet-Friendly (solo en terraza)"]
     }],
     ubicacion: 'Plazoleta de comidas, local 250',
     piso: 2,
@@ -92,7 +92,9 @@ export const negociosDetalle: cardDT[] = [
     estrellas: 4.6,
     estadoActivo: true
   },
-  
+
+
+
   // --- Tech Solutions (Detalle) ---
   {
     id: 'tech-solutions-101',
@@ -100,8 +102,8 @@ export const negociosDetalle: cardDT[] = [
     categoria: CategoriasEnum.TECNOLOGIA,
     description: 'Tu tienda de confianza para los últimos gadgets y componentes de computador. Asesoría experta y los mejores precios del mercado.',
     servicios: {
-        servicio: "Soporte y Garantías",
-        items: ['Ensamblaje de PCs', 'Soporte técnico remoto', 'Garantías extendidas', 'Instalación de software']
+      servicio: "Soporte y Garantías",
+      items: ['Ensamblaje de PCs', 'Soporte técnico remoto', 'Garantías extendidas', 'Instalación de software']
     },
     catalogo: {
       tituloSeccion: "Componentes Destacados",
