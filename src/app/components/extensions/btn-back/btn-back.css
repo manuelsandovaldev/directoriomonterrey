@@ -1,30 +1,40 @@
-/*
-  Este es el nuevo estilo minimalista. Lo convertimos en un botón de ícono
-  flotante que se puede superponer sobre otros elementos.
-*/
-.back-icon-button {
-  margin-top: 1rem;
-  margin-left: 1rem;
-  margin-bottom: 0.5rem;
-  background: transparent;
-  border: none;
-  padding: 0.5rem;
+/* 1. El contenedor se queda quieto */
+:host {
+  display: inline-block;
+  vertical-align: middle;
   cursor: pointer;
-  z-index: 10;
 }
 
-.back-icon-button .arrow {
-  font-size: 2rem;
-  /* Un ícono de flecha grande y claro. */
-  color: #333;
-  /* Color oscuro para buena visibilidad. */
-  transition: transform 0.2s ease-out;
-  /* Animación sutil. */
+/* 2. El botón: Lo acomodamos directo con márgenes */
+:host ::ng-deep .mat-mdc-icon-button {
+  color: #000000;
+  outline: none;
+
+  /* POSITION: Un poquito abajo (top) y más a la derecha (left) */
+  margin-top: 2.5px;
+  /* Lo baja un pelín */
+  margin-left: 12px;
+  /* Lo separa del borde izquierdo de la pantalla */
+  margin-right: 8px;
+  /* Lo separa del texto del título */
+
+  /* Transición suave para cuando quites el mouse */
+  transition: transform 0.2s ease-out, background-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-.back-icon-button:hover .arrow {
-  transform: translateX(-3px);
-  /* Pequeño movimiento a la izquierda al pasar el ratón. */
-  color: #007bff;
-  /* Cambia a un color de acento. */
+/* 3. Hover: Solo se desliza un poco a la izquierda desde donde está parado */
+:host(:hover) ::ng-deep .mat-mdc-icon-button {
+  transform: translateX(-4px);
+
+  /* Tu fondo circular sutil y la sombrita premium */
+  background-color: rgba(0, 0, 0, 0.08);
+  box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2),
+    0px 5px 8px 0px rgba(0, 0, 0, 0.14),
+    0px 1px 14px 0px rgba(0, 0, 0, 0.12);
+}
+
+/* 4. Ocultar efectos por defecto de Material */
+:host ::ng-deep .mat-mdc-button-persistent-ripple-target,
+:host ::ng-deep .mdc-icon-button__ripple {
+  display: none;
 }
