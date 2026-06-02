@@ -1,81 +1,175 @@
-@if (businessDetails(); as business) {
 <div class="business-detail-page">
 
+  <!-- 1. Cabecera: Logo circular y textos proporcionales -->
   <header class="business-header">
     <div class="logo-container">
-      <img [src]="business.img" alt="Logo de {{ business.title }}">
+      <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=2070" alt="Logo">
     </div>
+
     <div class="info-container">
-      <h1>{{ business.title }}</h1>
-      <p class="description">{{ business.description }}</p>
+      <h1>TechMarket & Food Monterrey</h1>
+      <p class="description">Tu hub tecnológico con la mejor comida urbana y hamburguesas artesanales en un solo lugar.
+        Disfruta de una experiencia única donde la innovación y el sabor se encuentran.</p>
+
       <ul class="contact-info">
-        <li><strong>Piso:</strong> {{ business.piso }}</li>
-        <li><strong>Ubicación:</strong> {{ business.ubicacion }}</li>
-        <li><strong>Teléfono:</strong> {{ business.phone }}</li>
+        <li><strong>Ubicación:</strong> Av. Principal Monterrey #456 (Piso 1)</li>
+        <li><strong>Teléfono:</strong> +52 81 1234 5678</li>
       </ul>
+
+      <div class="social-icons">
+        <span class="material-icons">public</span>
+        <span class="material-icons">thumb_up</span>
+        <span class="material-icons">chat</span>
+      </div>
     </div>
   </header>
 
+  <!-- 2. Galería: 3 Imágenes largas -->
   <section class="ambience-gallery">
-    <h2>Galería del Local</h2>
     <div class="image-grid">
-      @for (image of business.imagenes.slice(0, 3); track $index) {
-      <img [src]="image" alt="Ambiente de {{ business.title }}">
-      }
+      <div class="gallery-card">
+        <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=1974" alt="Ambiente 1">
+      </div>
+      <div class="gallery-card">
+        <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?q=80&w=1981" alt="Ambiente 2">
+      </div>
+      <div class="gallery-card">
+        <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=2080" alt="Ambiente 3">
+      </div>
     </div>
   </section>
 
+  <!-- 3. Contenido Principal -->
   <main class="dynamic-content">
 
-    @if (business.catalogo; as catalogo) {
-    <section class="content-section">
-      <h2>{{ catalogo.tituloSeccion }}</h2>
-      <div class="product-grid">
-        @for (item of catalogo.items; track item.id) {
-        <div class="product-placeholder">
-          <img [src]="item.imagen" alt="Imagen de {{ item.nombre }}">
-          <div class="product-info">
-            <h3>{{ item.nombre }}</h3>
-            <p>{{ item.descripcion }}</p>
-            <span class="price">{{ item.precio | currency:'USD' }}</span>
+    <!-- Carrusel de Servicios con Flechas Separadas -->
+    <section class="content-section carousel-section-wrapper">
+      <h2>Servicios del Negocio</h2>
+
+      <div class="carousel-container-layout">
+        <button type="button" class="ctrl-btn prev-btn">
+          <span class="material-icons">chevron_left</span>
+        </button>
+
+        <div class="services-carousel-track">
+          <div class="service-icon-card">
+            <div class="icon-glow-wrapper">
+              <span class="material-icons">laptop_mac</span>
+            </div>
+            <span>Soporte Técnico</span>
+          </div>
+          <div class="service-icon-card">
+            <div class="icon-glow-wrapper">
+              <span class="material-icons">build</span>
+            </div>
+            <span>Instalación</span>
+          </div>
+          <div class="service-icon-card">
+            <div class="icon-glow-wrapper">
+              <span class="material-icons">forum</span>
+            </div>
+            <span>Consultoría</span>
+          </div>
+          <div class="service-icon-card">
+            <div class="icon-glow-wrapper">
+              <span class="material-icons">cloud_queue</span>
+            </div>
+            <span>Cloud Setup</span>
+          </div>
+          <div class="service-icon-card">
+            <div class="icon-glow-wrapper">
+              <span class="material-icons">delivery_dining</span>
+            </div>
+            <span>Domicilios</span>
           </div>
         </div>
-        }
+
+        <button type="button" class="ctrl-btn next-btn">
+          <span class="material-icons">chevron_right</span>
+        </button>
       </div>
     </section>
-    }
 
-    @if (business.servicios; as servicios) {
-    <section class="content-section">
-      <h2>{{ servicios.servicio }}</h2>
-      <ul class="feature-list">
-        @for (item of servicios.items; track $index) {
-        <li>{{ item }}</li>
-        }
-      </ul>
-    </section>
-    }
+    <!-- Zona de Compras y Pedidos -->
+    <div class="store-layout-grid">
 
-    @if (business.caracteristicas; as caracteristicas) {
-    @for (grupo of caracteristicas; track $index) {
-    <section class="content-section">
-      <h2>{{ grupo.nombre }}</h2>
-      <ul class="feature-list">
-        @for (item of grupo.items; track $index) {
-        <li>{{ item }}</li>
-        }
-      </ul>
-    </section>
-    }
-    }
+      <!-- Catálogo -->
+      <section class="catalog-section">
+        <h2>Realiza tu Pedido</h2>
+        <div class="product-grid">
+
+          <div class="product-placeholder">
+            <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?q=80&w=1998" alt="Producto 1">
+            <div class="product-info">
+              <h3>Mega Tech Burger</h3>
+              <p>Doble carne artesanal, queso cheddar fundido, tocino crujiente y salsa secreta de la casa en pan
+                brioche.</p>
+              <div class="product-footer">
+                <span class="price">$12.99</span>
+                <button class="buy-button" type="button">
+                  <span class="material-icons">add_shopping_cart</span> Añadir
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-placeholder">
+            <img src="https://images.unsplash.com/photo-1573080496219-bb080dd4f877?q=80&w=1974" alt="Producto 2">
+            <div class="product-info">
+              <h3>Combo Ciber-Papas</h3>
+              <p>Papas rústicas gigantes con baño de queso cheddar, trozos de tocino ahumado y cebollín al gusto.</p>
+              <div class="product-footer">
+                <span class="price">$6.50</span>
+                <button class="buy-button" type="button">
+                  <span class="material-icons">add_shopping_cart</span> Añadir
+                </button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Panel de la Cuenta -->
+      <aside class="checkout-panel">
+        <div class="checkout-sticky-card">
+          <div class="checkout-header">
+            <h3>Tu Orden</h3>
+            <button class="clear-btn">Vaciar</button>
+          </div>
+
+          <div class="cart-items-list">
+            <div class="cart-item">
+              <div class="cart-item-details">
+                <h4>Mega Tech Burger</h4>
+                <span>$12.99</span>
+              </div>
+              <div class="cart-item-actions">
+                <button type="button">-</button>
+                <span class="qty-label">1</span>
+                <button type="button">+</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="checkout-summary">
+            <div class="summary-row">
+              <span>Items totales:</span>
+              <strong>1</strong>
+            </div>
+            <div class="summary-row total-row">
+              <span>Total a Pagar:</span>
+              <span class="final-price">$12.99</span>
+            </div>
+            <button type="button" class="order-confirm-btn">
+              Confirmar Pedido en la App
+            </button>
+          </div>
+        </div>
+      </aside>
+
+    </div>
 
   </main>
 
 </div>
-} @else {
-<div class="not-found-container">
-  <h2>Negocio no encontrado</h2>
-  <p>El negocio que buscas no existe o ha sido eliminado.</p>
-  <a routerLink="/locals">Volver al listado</a>
-</div>
-}
