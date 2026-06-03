@@ -1,30 +1,43 @@
 <div class="business-detail-page">
 
-  <!-- 1. Cabecera: Logo circular y textos proporcionales -->
   <header class="business-header">
-    <div class="logo-container">
-      <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=2070" alt="Logo">
+    <div class="header-main-info">
+      <div class="logo-container">
+        <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=2070" alt="Logo">
+      </div>
+
+      <div class="info-container">
+        <h1>TechMarket & Food Monterrey</h1>
+        <p class="description">Tu hub tecnológico con la mejor comida urbana y hamburguesas artesanales en un solo
+          lugar. Disfruta de una experiencia única donde la innovación y el sabor se encuentran.</p>
+
+        <ul class="contact-info">
+          <li><strong>Ubicación:</strong> Av. Principal Monterrey #456 (Piso 1)</li>
+          <li><strong>Teléfono:</strong> +52 81 1234 5678</li>
+        </ul>
+
+        <div class="social-icons">
+          <span class="material-icons">public</span>
+          <span class="material-icons">thumb_up</span>
+          <span class="material-icons">chat</span>
+        </div>
+      </div>
     </div>
 
-    <div class="info-container">
-      <h1>TechMarket & Food Monterrey</h1>
-      <p class="description">Tu hub tecnológico con la mejor comida urbana y hamburguesas artesanales en un solo lugar.
-        Disfruta de una experiencia única donde la innovación y el sabor se encuentran.</p>
-
-      <ul class="contact-info">
-        <li><strong>Ubicación:</strong> Av. Principal Monterrey #456 (Piso 1)</li>
-        <li><strong>Teléfono:</strong> +52 81 1234 5678</li>
+    <div class="business-hours-card">
+      <h3>🕒 Horarios de Atención</h3>
+      <ul class="hours-list">
+        <li class="current-day"><span>Lunes (Hoy)</span> <strong>11:00 AM - 10:00 PM</strong></li>
+        <li><span>Martes</span> <strong>11:00 AM - 10:00 PM</strong></li>
+        <li><span>Miércoles</span> <strong>11:00 AM - 10:00 PM</strong></li>
+        <li><span>Jueves</span> <strong>11:00 AM - 11:00 PM</strong></li>
+        <li><span>Viernes</span> <strong>11:00 AM - 01:00 AM</strong></li>
+        <li><span>Sábado</span> <strong>12:00 PM - 01:00 AM</strong></li>
+        <li><span>Domingo</span> <strong>12:00 PM - 10:00 PM</strong></li>
       </ul>
-
-      <div class="social-icons">
-        <span class="material-icons">public</span>
-        <span class="material-icons">thumb_up</span>
-        <span class="material-icons">chat</span>
-      </div>
     </div>
   </header>
 
-  <!-- 2. Galería: 3 Imágenes largas -->
   <section class="ambience-gallery">
     <div class="image-grid">
       <div class="gallery-card">
@@ -39,10 +52,19 @@
     </div>
   </section>
 
-  <!-- 3. Contenido Principal -->
   <main class="dynamic-content">
 
-    <!-- Carrusel de Servicios con Flechas Separadas -->
+    <section class="action-trigger-section">
+      <button type="button" class="go-to-order-btn">
+        <svg class="cart-icon-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+          <path
+            d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z" />
+        </svg>
+        Realizar tu Pedido
+        <span class="arrow-icon">➔</span>
+      </button>
+    </section>
+
     <section class="content-section carousel-section-wrapper">
       <h2>Servicios del Negocio</h2>
 
@@ -90,85 +112,58 @@
       </div>
     </section>
 
-    <!-- Zona de Compras y Pedidos -->
-    <div class="store-layout-grid">
+    <section class="reviews-section">
+      <h2>Opiniones de Clientes</h2>
+      <div class="reviews-layout">
 
-      <!-- Catálogo -->
-      <section class="catalog-section">
-        <h2>Realiza tu Pedido</h2>
-        <div class="product-grid">
-
-          <div class="product-placeholder">
-            <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?q=80&w=1998" alt="Producto 1">
-            <div class="product-info">
-              <h3>Mega Tech Burger</h3>
-              <p>Doble carne artesanal, queso cheddar fundido, tocino crujiente y salsa secreta de la casa en pan
-                brioche.</p>
-              <div class="product-footer">
-                <span class="price">$12.99</span>
-                <button class="buy-button" type="button">
-                  <span class="material-icons">add_shopping_cart</span> Añadir
-                </button>
-              </div>
-            </div>
+        <div class="reviews-score-card">
+          <div class="big-score">4.8</div>
+          <div class="stars-row">
+            <span class="material-icons">star</span>
+            <span class="material-icons">star</span>
+            <span class="material-icons">star</span>
+            <span class="material-icons">star</span>
+            <span class="material-icons">star_half</span>
           </div>
-
-          <div class="product-placeholder">
-            <img src="https://images.unsplash.com/photo-1573080496219-bb080dd4f877?q=80&w=1974" alt="Producto 2">
-            <div class="product-info">
-              <h3>Combo Ciber-Papas</h3>
-              <p>Papas rústicas gigantes con baño de queso cheddar, trozos de tocino ahumado y cebollín al gusto.</p>
-              <div class="product-footer">
-                <span class="price">$6.50</span>
-                <button class="buy-button" type="button">
-                  <span class="material-icons">add_shopping_cart</span> Añadir
-                </button>
-              </div>
-            </div>
-          </div>
-
+          <p>Basado en 142 opiniones de la comunidad</p>
         </div>
-      </section>
 
-      <!-- Panel de la Cuenta -->
-      <aside class="checkout-panel">
-        <div class="checkout-sticky-card">
-          <div class="checkout-header">
-            <h3>Tu Orden</h3>
-            <button class="clear-btn">Vaciar</button>
-          </div>
-
-          <div class="cart-items-list">
-            <div class="cart-item">
-              <div class="cart-item-details">
-                <h4>Mega Tech Burger</h4>
-                <span>$12.99</span>
-              </div>
-              <div class="cart-item-actions">
-                <button type="button">-</button>
-                <span class="qty-label">1</span>
-                <button type="button">+</button>
+        <div class="reviews-grid">
+          <div class="review-card">
+            <div class="review-header">
+              <div class="user-avatar">AM</div>
+              <div class="user-meta">
+                <h4>Andrés Mendoza</h4>
+                <div class="user-stars">
+                  <span class="material-icons">star</span><span class="material-icons">star</span><span
+                    class="material-icons">star</span><span class="material-icons">star</span><span
+                    class="material-icons">star</span>
+                </div>
               </div>
             </div>
+            <p class="review-text">¡La comida es brutal y el servicio técnico me solucionó el problema de la laptop
+              volando! Excelente concepto.</p>
           </div>
 
-          <div class="checkout-summary">
-            <div class="summary-row">
-              <span>Items totales:</span>
-              <strong>1</strong>
+          <div class="review-card">
+            <div class="review-header">
+              <div class="user-avatar">KG</div>
+              <div class="user-meta">
+                <h4>Karla Gómez</h4>
+                <div class="user-stars">
+                  <span class="material-icons">star</span><span class="material-icons">star</span><span
+                    class="material-icons">star</span><span class="material-icons">star</span><span
+                    class="material-icons">star_outline</span>
+                </div>
+              </div>
             </div>
-            <div class="summary-row total-row">
-              <span>Total a Pagar:</span>
-              <span class="final-price">$12.99</span>
-            </div>
-            <button type="button" class="order-confirm-btn">
-              Confirmar Pedido en la App
-            </button>
+            <p class="review-text">Las hamburguesas artesanales son de las mejores del sector. La atención en los
+              canales fue impecable.</p>
           </div>
         </div>
-      </aside>
 
-    </div>
+      </div>
+    </section>
 
   </main>
 
