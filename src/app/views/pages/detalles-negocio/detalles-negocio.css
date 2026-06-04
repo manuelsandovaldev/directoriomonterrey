@@ -2,17 +2,19 @@
   display: block;
   width: 100%;
   font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-  background-color: #f4f6f8;
+  background-color: #ffffff;
   color: #0f172a;
+  padding: 15px 0;
+  box-sizing: border-box;
 }
 
 .business-detail-page {
   width: 100%;
-  max-width: 1400px !important;
+  max-width: 1480px !important;
   margin: 0 auto !important;
   background: #ffffff;
-  border-radius: 32px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.06);
+  border-radius: 0px !important;
+  box-shadow: none !important;
 }
 
 .business-header {
@@ -20,8 +22,10 @@
   grid-template-columns: 1fr 360px;
   gap: 4rem;
   align-items: center;
-  padding: 4rem 4rem 2rem 4rem;
-  background: radial-gradient(circle at top right, rgba(241, 245, 249, 0.6), transparent);
+  padding: 4rem 2rem 3rem 2rem;
+  background: #ffffff;
+  /* Reducido 5px de los lados (de 2rem a 1.7rem) */
+  margin: 0 1.7rem;
   border-bottom: 1px solid #e2e8f0;
 }
 
@@ -32,8 +36,8 @@
 }
 
 .logo-container img {
-  width: 220px;
-  height: 220px;
+  width: 260px !important;
+  height: 260px !important;
   object-fit: cover;
   border-radius: 50%;
   border: 5px solid #ffffff;
@@ -80,17 +84,27 @@
 .social-icons {
   display: flex;
   gap: 1.5rem;
-  color: #007bff;
+  align-items: center;
 }
 
-.social-icons span {
-  cursor: pointer;
-  font-size: 1.8rem;
-  transition: transform 0.2s;
+span.material-icons {
+  font-size: 2.5rem !important;
+  width: auto !important;
+  height: auto !important;
 }
 
-.social-icons span:hover {
-  transform: scale(1.2);
+.social-icons .material-icons {
+  cursor: pointer !important;
+  color: #007bff !important;
+  transition: transform 0.2s ease, color 0.2s ease !important;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.social-icons .material-icons:hover {
+  transform: scale(1.2) !important;
+  color: #0056b3 !important;
 }
 
 .business-hours-card {
@@ -128,7 +142,8 @@
 }
 
 .ambience-gallery {
-  padding: 3rem 4rem 1.5rem 4rem;
+  /* Ajustado el padding lateral para mantener simetría con la cabecera */
+  padding: 3rem 1.7rem 1.5rem 1.7rem;
   display: block;
 }
 
@@ -156,7 +171,8 @@
 }
 
 .dynamic-content {
-  padding: 3rem 4rem;
+  /* Ajustado de 2rem a 1.7rem para alinearse con los cambios superiores */
+  padding: 3rem 1.7rem;
   display: flex;
   flex-direction: column;
 }
@@ -241,6 +257,7 @@
   border-radius: 2px;
 }
 
+/* --- SECCIÓN CARRUSEL RESPONSIVA --- */
 .carousel-container-layout {
   display: flex;
   align-items: center;
@@ -278,11 +295,18 @@
 
 .services-carousel-track {
   display: flex;
-  gap: 2rem;
+  gap: 1.5rem;
   overflow-x: auto;
   padding: 0.5rem;
   scroll-behavior: smooth;
   flex: 1;
+  scroll-snap-type: x mandatory;
+  cursor: grab;
+  user-select: none;
+}
+
+.services-carousel-track:active {
+  cursor: grabbing;
 }
 
 .services-carousel-track::-webkit-scrollbar {
@@ -291,11 +315,10 @@
 }
 
 .service-icon-card {
-  flex: 1 0 calc(16.66% - 2rem);
-  min-width: 200px;
+  flex: 0 0 calc(16.66% - 1.25rem);
   background-color: #ffffff !important;
   border: 1px solid #e2e8f0 !important;
-  padding: 2.5rem 1.2rem;
+  padding: 2.5rem 1rem;
   border-radius: 28px;
   display: flex !important;
   flex-direction: column !important;
@@ -305,6 +328,7 @@
   position: relative !important;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.03);
   transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+  scroll-snap-align: start;
 }
 
 .icon-glow-wrapper {
@@ -440,18 +464,30 @@
   line-height: 1.6;
 }
 
+/* --- RESPONSIVE MEDIA QUERIES --- */
+
 @media (max-width: 1200px) {
   .business-header {
     gap: 2rem;
-    padding: 3rem 2rem 2rem 2rem;
+    padding: 3rem 1.2rem 2rem 1.2rem;
+    margin: 0 1.2rem;
+  }
+
+  .logo-container img {
+    width: 200px !important;
+    height: 200px !important;
   }
 
   .ambience-gallery {
-    padding: 3rem 2rem 1.5rem 2rem;
+    padding: 3rem 1.2rem 1.5rem 1.2rem;
   }
 
   .dynamic-content {
-    padding: 3rem 2rem;
+    padding: 3rem 1.2rem;
+  }
+
+  .service-icon-card {
+    flex: 0 0 calc(25% - 1.15rem);
   }
 }
 
@@ -465,13 +501,31 @@
     grid-template-columns: 1fr;
     gap: 2rem;
   }
+
+  .service-icon-card {
+    flex: 0 0 calc(33.33% - 1rem);
+  }
 }
 
 @media (max-width: 768px) {
+  :host {
+    padding: 10px 0;
+  }
+
+  .business-header {
+    padding: 2rem 0.8rem;
+    margin: 0 0.8rem;
+  }
+
   .header-main-info {
     flex-direction: column;
     text-align: center;
     gap: 1.5rem;
+  }
+
+  .logo-container img {
+    width: 150px !important;
+    height: 150px !important;
   }
 
   .image-grid {
@@ -485,5 +539,37 @@
   .action-trigger-section {
     padding: 0;
     margin-bottom: 3.5rem;
+  }
+
+  .ctrl-btn {
+    display: none !important;
+  }
+
+  .carousel-container-layout {
+    padding: 1.5rem 1rem;
+    border-radius: 20px;
+    gap: 0px;
+  }
+
+  .service-icon-card {
+    flex: 0 0 calc(50% - 0.75rem);
+    padding: 2rem 0.75rem;
+    gap: 1rem;
+    border-radius: 20px;
+  }
+
+  .icon-glow-wrapper {
+    width: 60px !important;
+    height: 60px !important;
+  }
+
+  .service-icon-card span:not(.material-icons) {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .service-icon-card {
+    flex: 0 0 calc(100% - 0.5rem);
   }
 }

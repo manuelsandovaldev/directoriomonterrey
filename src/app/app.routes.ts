@@ -1,5 +1,5 @@
 import { Routes } from '@angular/router';
-import { barNavegation } from './bar-navegation/bar-navegation';
+import { barNavegation } from './components/build/bar-navegation/bar-navegation';
 import { LocalsComponent } from './views/pages/locals/locals';
 import { Contac } from './views/pages/contac/contac';
 import { Home } from './views/pages/home/home';
