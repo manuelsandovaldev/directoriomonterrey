@@ -2,46 +2,111 @@
   display: block;
 }
 
-.bottom-nav-toolbar {
-  /* --- Posicionamiento Fijo --- */
-  position: fixed; /* Clave para que siempre esté visible */
-  bottom: 0;       /* La pegamos a la parte inferior */
-  left: 0;         /* La extendemos a la izquierda */
-  right: 0;        /* La extendemos a la derecha */
-  z-index: 100;    /* Nos aseguramos de que esté por encima de otros elementos */
-
-  /* --- Estilo Visual --- */
-  display: flex;
-  justify-content: space-around; /* Distribuimos los iconos equitativamente */
-  background-color: var(--mat-sidenav-content-background-color, white); /* Usa el color de fondo del tema */
-  border-top: 1px solid rgba(0,0,0,0.12); /* Borde superior sutil */
+.layout-content {
+  box-sizing: border-box;
+  width: 100%;
+  padding-bottom: clamp(64px, 10vw, 80px) !important;
 }
 
+/* --- BARRA CON MÁXIMO REDONDEADO --- */
+.bottom-nav-toolbar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+
+  height: clamp(60px, 8.5vw, 72px) !important;
+  /* Ajustamos un pelín la altura general */
+  min-height: clamp(60px, 8.5vw, 72px) !important;
+
+  display: flex;
+  justify-content: space-around;
+  background-color: var(--mat-sidenav-content-background-color, white);
+
+  border-top-left-radius: 28px !important;
+  border-top-right-radius: 28px !important;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0px -4px 20px rgba(0, 0, 0, 0.05);
+}
+
+/* --- BOTONES BASE --- */
 .nav-button {
   display: flex;
-  flex-direction: column; /* Icono arriba, texto abajo */
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   text-decoration: none;
-  color: #757575; /* Color gris para los iconos inactivos */
-  font-size: 12px;
-  padding: 8px 12px;
-  border-radius: 4px;
-  transition: background-color 0.2s ease-in-out;
+  color: #666666;
+  flex: 1;
+  min-width: 0;
+
+  font-size: clamp(10px, 1.1vw, 12px) !important;
+  font-weight: 500;
+
+  /* REDUCIDO: Acortamos la distancia entre la burbuja del icono y el texto */
+  gap: 1px !important;
+  background: none !important;
+  transition: color 0.4s ease;
 }
 
-.nav-button:hover {
-  background-color: rgba(0,0,0,0.04);
+/* --- CÁPSULA DE ENTORNO (MÁS BAJA Y COMPACTA) --- */
+.icon-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: clamp(48px, 6vw, 64px);
+  /* RECORTE: Bajamos la altura de 32px a 26px para aplastar la burbuja verticalmente */
+  height: clamp(24px, 3.5vw, 26px) !important;
+  border-radius: 14px !important;
+  background-color: transparent;
+
+  /* Margen inferior en cero o ligeramente negativo para arrastrar el texto hacia arriba */
+  margin-bottom: 2px !important;
+
+  transition: background-color 0.4s ease, transform 0.4s ease !important;
 }
 
+/* --- EL ÍCONO (BIEN CENTRADO) --- */
 .nav-button mat-icon {
-  font-size: 24px;
-  width: 24px;
-  height: 24px;
-  margin-bottom: 2px;
+  font-size: clamp(22px, 2.2vw, 24px) !important;
+  width: clamp(22px, 2.2vw, 24px) !important;
+  height: clamp(22px, 2.2vw, 24px) !important;
+  z-index: 2;
+
+  /* Eliminamos cualquier margen interno heredado que empuje el texto */
+  margin: 0 !important;
+
+  transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1) !important;
 }
 
-/* --- Estilo para el botón activo --- */
+/* --- HOVER EN PC --- */
+.nav-button:hover .icon-wrapper {
+  background-color: rgba(0, 0, 0, 0.04) !important;
+}
+
+/* --- --- ESTADO ACTIVO --- --- */
 .active-link {
-  color: var(--mat-primary-color, #3f51b5); /* Usa el color primario del tema */
+  color: var(--mat-primary-color, #3f51b5) !important;
+  font-weight: 600;
+}
+
+.active-link .icon-wrapper {
+  background-color: rgba(63, 81, 181, 0.14) !important;
+  transition: background-color 0.1s ease-out !important;
+}
+
+/* Al saltar, sube sutilmente sin separarse drásticamente del texto */
+.active-link mat-icon {
+  transform: translateY(-2px) scale(1.1) !important;
+  transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+}
+
+/* Desactivar estilos por defecto de Angular Material */
+:host ::ng-deep .mat-mdc-button-persistent-ripple-target,
+:host ::ng-deep .mdc-icon-button__ripple,
+:host ::ng-deep .mat-ripple {
+  display: none !important;
 }

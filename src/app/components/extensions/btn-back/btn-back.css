@@ -1,40 +1,43 @@
-/* 1. El contenedor se queda quieto */
+/* 1. El contenedor del componente se mantiene en el flujo */
 :host {
   display: inline-block;
   vertical-align: middle;
   cursor: pointer;
 }
 
-/* 2. El botón: Lo acomodamos directo con márgenes */
-:host ::ng-deep .mat-mdc-icon-button {
-  color: #000000;
-  outline: none;
+/* 2. Botón con márgenes 100% automáticos y elásticos */
+:host .back-icon-button {
+  color: #000000 !important;
+  outline: none !important;
 
-  /* POSITION: Un poquito abajo (top) y más a la derecha (left) */
-  margin-top: 2.5px;
-  /* Lo baja un pelín */
-  margin-left: 12px;
-  /* Lo separa del borde izquierdo de la pantalla */
-  margin-right: 8px;
-  /* Lo separa del texto del título */
+  /* --- MÁRGENES DINÁMICOS AUTOMÁTICOS --- */
+  /* Arriba y abajo: fluctúa entre 0px en móvil y 2.5px en PC */
+  margin-top: clamp(0px, 0.3vw, 2.5px) !important;
+  margin-bottom: clamp(0px, 0.3vw, 2.5px) !important;
 
-  /* Transición suave para cuando quites el mouse */
-  transition: transform 0.2s ease-out, background-color 0.2s ease, box-shadow 0.2s ease;
+  /* Izquierda: en móvil es 3px, en PC llega hasta 16px, y se adapta fluidamente en el medio */
+  margin-left: clamp(3px, 1.5vw, 16px) !important;
+
+  /* Derecha: en móvil es 3px, en PC llega hasta 12px */
+  margin-right: clamp(3px, 1.2vw, 12px) !important;
+
+  /* Transición suave para el hover */
+  transition: transform 0.2s ease-out, background-color 0.2s ease, box-shadow 0.2s ease !important;
 }
 
-/* 3. Hover: Solo se desliza un poco a la izquierda desde donde está parado */
-:host(:hover) ::ng-deep .mat-mdc-icon-button {
-  transform: translateX(-4px);
-
-  /* Tu fondo circular sutil y la sombrita premium */
-  background-color: rgba(0, 0, 0, 0.08);
+/* 3. Efecto Hover Premium (PC) */
+:host .back-icon-button:hover {
+  transform: translateX(-4px) !important;
+  background-color: rgba(0, 0, 0, 0.08) !important;
   box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2),
     0px 5px 8px 0px rgba(0, 0, 0, 0.14),
-    0px 1px 14px 0px rgba(0, 0, 0, 0.12);
+    0px 1px 14px 0px rgba(0, 0, 0, 0.12) !important;
 }
 
-/* 4. Ocultar efectos por defecto de Material */
+/* 4. Ocultar los efectos nativos de Material */
 :host ::ng-deep .mat-mdc-button-persistent-ripple-target,
-:host ::ng-deep .mdc-icon-button__ripple {
-  display: none;
+:host ::ng-deep .mdc-icon-button__ripple,
+:host ::ng-deep .mat-ripple {
+  display: none !important;
+  visibility: hidden !important;
 }
