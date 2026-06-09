@@ -1,54 +1,52 @@
+@if (businessDetails(); as business) {
 <div class="business-detail-page">
 
-  <header class="business-header">
-    <div class="header-main-info">
-      <div class="logo-container">
-        <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=2070" alt="Logo">
-      </div>
+  <div class="business-header-wrapper">
+    <div class="header-bg-blur" [style.background-image]="'url(' + business.img + ')'"></div>
+    <header class="business-header">
+      <div class="header-main-info">
+        <div class="logo-container">
+          <img [src]="business.img" [alt]="business.title">
+        </div>
 
-      <div class="info-container">
-        <h1>TechMarket & Food Monterrey</h1>
-        <p class="description">Tu hub tecnológico con la mejor comida urbana y hamburguesas artesanales en un solo
-          lugar. Disfruta de una experiencia única donde la innovación y el sabor se encuentran.</p>
+        <div class="info-container">
+          <h1>{{ business.title }}</h1>
+          <p class="description">{{ business.description }}</p>
 
-        <ul class="contact-info">
-          <li><strong>Ubicación:</strong> Av. Principal Monterrey #456 (Piso 1)</li>
-          <li><strong>Teléfono:</strong> +52 81 1234 5678</li>
-        </ul>
+          <ul class="contact-info">
+            <li><strong>Ubicación:</strong> {{ business.ubicacion }}</li>
+            <li><strong>Teléfono:</strong> {{ business.phone }}</li>
+          </ul>
 
-        <div class="social-icons">
-          <span class="material-icons">public</span>
-          <span class="material-icons">thumb_up</span>
-          <span class="material-icons">chat</span>
+          <div class="social-icons">
+            <span class="material-icons">public</span>
+            <span class="material-icons">thumb_up</span>
+            <span class="material-icons">chat</span>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="business-hours-card">
-      <h3>🕒 Horarios de Atención</h3>
-      <ul class="hours-list">
-        <li class="current-day"><span>Lunes (Hoy)</span> <strong>11:00 AM - 10:00 PM</strong></li>
-        <li><span>Martes</span> <strong>11:00 AM - 10:00 PM</strong></li>
-        <li><span>Miércoles</span> <strong>11:00 AM - 10:00 PM</strong></li>
-        <li><span>Jueves</span> <strong>11:00 AM - 11:00 PM</strong></li>
-        <li><span>Viernes</span> <strong>11:00 AM - 01:00 AM</strong></li>
-        <li><span>Sábado</span> <strong>12:00 PM - 01:00 AM</strong></li>
-        <li><span>Domingo</span> <strong>12:00 PM - 10:00 PM</strong></li>
-      </ul>
-    </div>
-  </header>
+      <div class="business-hours-card">
+        <h3>🕒 Horarios de Atención</h3>
+        <ul class="hours-list">
+          @for (horario of business.horarios; track horario.dias) {
+          <li><span>{{ horario.dias }}</span> <strong>{{ horario.apertura }}:00 - {{ horario.cierre }}:00</strong></li>
+          }
+        </ul>
+      </div>
+    </header>
+  </div>
 
   <section class="ambience-gallery">
     <div class="image-grid">
-      <div class="gallery-card">
-        <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=1974" alt="Ambiente 1">
+      @for (img of business.imagenes; track img; let i = $index) {
+      <div class="gallery-card" (click)="openLightbox(i)" style="cursor: pointer;">
+        <img [src]="img" [alt]="business.title + ' ambiente'">
+        <div class="gallery-overlay">
+          <span class="material-icons">zoom_in</span>
+        </div>
       </div>
-      <div class="gallery-card">
-        <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?q=80&w=1981" alt="Ambiente 2">
-      </div>
-      <div class="gallery-card">
-        <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=2080" alt="Ambiente 3">
-      </div>
+      }
     </div>
   </section>
 
@@ -65,8 +63,9 @@
       </button>
     </section>
 
+    @if (business.servicios) {
     <section class="content-section carousel-section-wrapper">
-      <h2>Servicios del Negocio</h2>
+      <h2>{{ business.servicios.servicio }}</h2>
 
       <div class="carousel-container-layout">
         <button type="button" class="ctrl-btn prev-btn">
@@ -74,36 +73,14 @@
         </button>
 
         <div class="services-carousel-track">
+          @for (item of business.servicios.items; track item) {
           <div class="service-icon-card">
             <div class="icon-glow-wrapper">
-              <span class="material-icons">laptop_mac</span>
+              <span class="material-icons">check_circle</span>
             </div>
-            <span>Soporte Técnico</span>
+            <span>{{ item }}</span>
           </div>
-          <div class="service-icon-card">
-            <div class="icon-glow-wrapper">
-              <span class="material-icons">build</span>
-            </div>
-            <span>Instalación</span>
-          </div>
-          <div class="service-icon-card">
-            <div class="icon-glow-wrapper">
-              <span class="material-icons">forum</span>
-            </div>
-            <span>Consultoría</span>
-          </div>
-          <div class="service-icon-card">
-            <div class="icon-glow-wrapper">
-              <span class="material-icons">cloud_queue</span>
-            </div>
-            <span>Cloud Setup</span>
-          </div>
-          <div class="service-icon-card">
-            <div class="icon-glow-wrapper">
-              <span class="material-icons">delivery_dining</span>
-            </div>
-            <span>Domicilios</span>
-          </div>
+          }
         </div>
 
         <button type="button" class="ctrl-btn next-btn">
@@ -111,13 +88,41 @@
         </button>
       </div>
     </section>
+    }
+
+    @if (business.caracteristicas && business.caracteristicas.length > 0) {
+    <section class="content-section carousel-section-wrapper">
+      <h2>{{ business.caracteristicas[0].nombre }}</h2>
+
+      <div class="carousel-container-layout">
+        <button type="button" class="ctrl-btn prev-btn">
+          <span class="material-icons">chevron_left</span>
+        </button>
+
+        <div class="services-carousel-track">
+          @for (item of business.caracteristicas[0].items; track item) {
+          <div class="service-icon-card">
+            <div class="icon-glow-wrapper">
+              <span class="material-icons">verified</span>
+            </div>
+            <span>{{ item }}</span>
+          </div>
+          }
+        </div>
+
+        <button type="button" class="ctrl-btn next-btn">
+          <span class="material-icons">chevron_right</span>
+        </button>
+      </div>
+    </section>
+    }
 
     <section class="reviews-section">
       <h2>Opiniones de Clientes</h2>
       <div class="reviews-layout">
 
         <div class="reviews-score-card">
-          <div class="big-score">4.8</div>
+          <div class="big-score">{{ business.estrellas || '4.5' }}</div>
           <div class="stars-row">
             <span class="material-icons">star</span>
             <span class="material-icons">star</span>
@@ -125,7 +130,7 @@
             <span class="material-icons">star</span>
             <span class="material-icons">star_half</span>
           </div>
-          <p>Basado en 142 opiniones de la comunidad</p>
+          <p>Basado en opiniones de la comunidad</p>
         </div>
 
         <div class="reviews-grid">
@@ -141,8 +146,7 @@
                 </div>
               </div>
             </div>
-            <p class="review-text">¡La comida es brutal y el servicio técnico me solucionó el problema de la laptop
-              volando! Excelente concepto.</p>
+            <p class="review-text">¡Excelente concepto! Recomiendo muchísimo sus servicios.</p>
           </div>
 
           <div class="review-card">
@@ -157,8 +161,7 @@
                 </div>
               </div>
             </div>
-            <p class="review-text">Las hamburguesas artesanales son de las mejores del sector. La atención en los
-              canales fue impecable.</p>
+            <p class="review-text">Muy buena atención y los productos son de primera. Definitivamente volveré.</p>
           </div>
         </div>
 
@@ -168,3 +171,39 @@
   </main>
 
 </div>
+
+@if (selectedImageIndex() !== null) {
+<div class="lightbox-overlay" (click)="closeLightbox()"
+     (touchstart)="onTouchStart($event)"
+     (touchend)="onTouchEnd($event)">
+  
+  <button class="close-lightbox-btn" (click)="closeLightbox()">
+    <span class="material-icons">close</span>
+  </button>
+
+  <button class="nav-lightbox-btn prev-btn" (click)="prevImage($event)">
+    <span class="material-icons">chevron_left</span>
+  </button>
+
+  <div class="lightbox-content-wrapper" (click)="$event.stopPropagation()">
+    <div class="lightbox-track" [style.transform]="'translateX(-' + (selectedImageIndex()! * 100) + 'vw)'">
+      @for (img of businessDetails()!.imagenes; track img) {
+      <div class="lightbox-slide">
+        <img [src]="img" alt="Imagen ampliada">
+      </div>
+      }
+    </div>
+  </div>
+
+  <button class="nav-lightbox-btn next-btn" (click)="nextImage($event)">
+    <span class="material-icons">chevron_right</span>
+  </button>
+</div>
+}
+
+} @else {
+<div class="not-found" style="text-align: center; padding: 100px 20px; color: white;">
+  <h2>Negocio no encontrado</h2>
+  <p>Lo sentimos, no pudimos encontrar los detalles que estás buscando.</p>
+</div>
+}
