@@ -37,6 +37,20 @@
     </header>
   </div>
 
+  @if (business.servicios) {
+  <section class="content-section chips-section-wrapper" style="padding: 2rem 1.7rem 0 1.7rem; margin-bottom: 0;">
+    <h2 style="margin-bottom: 1.5rem;">{{ business.servicios.servicio }}</h2>
+    <div class="chips-container-layout">
+      @for (item of business.servicios.items; track item) {
+      <div class="chip-card">
+        <span class="material-icons">check_circle</span>
+        <span>{{ item }}</span>
+      </div>
+      }
+    </div>
+  </section>
+  }
+
   <section class="ambience-gallery">
     <div class="image-grid">
       @for (img of business.imagenes; track img; let i = $index) {
@@ -62,60 +76,6 @@
         <span class="arrow-icon">➔</span>
       </button>
     </section>
-
-    @if (business.servicios) {
-    <section class="content-section carousel-section-wrapper">
-      <h2>{{ business.servicios.servicio }}</h2>
-
-      <div class="carousel-container-layout">
-        <button type="button" class="ctrl-btn prev-btn">
-          <span class="material-icons">chevron_left</span>
-        </button>
-
-        <div class="services-carousel-track">
-          @for (item of business.servicios.items; track item) {
-          <div class="service-icon-card">
-            <div class="icon-glow-wrapper">
-              <span class="material-icons">check_circle</span>
-            </div>
-            <span>{{ item }}</span>
-          </div>
-          }
-        </div>
-
-        <button type="button" class="ctrl-btn next-btn">
-          <span class="material-icons">chevron_right</span>
-        </button>
-      </div>
-    </section>
-    }
-
-    @if (business.caracteristicas && business.caracteristicas.length > 0) {
-    <section class="content-section carousel-section-wrapper">
-      <h2>{{ business.caracteristicas[0].nombre }}</h2>
-
-      <div class="carousel-container-layout">
-        <button type="button" class="ctrl-btn prev-btn">
-          <span class="material-icons">chevron_left</span>
-        </button>
-
-        <div class="services-carousel-track">
-          @for (item of business.caracteristicas[0].items; track item) {
-          <div class="service-icon-card">
-            <div class="icon-glow-wrapper">
-              <span class="material-icons">verified</span>
-            </div>
-            <span>{{ item }}</span>
-          </div>
-          }
-        </div>
-
-        <button type="button" class="ctrl-btn next-btn">
-          <span class="material-icons">chevron_right</span>
-        </button>
-      </div>
-    </section>
-    }
 
     <section class="reviews-section">
       <h2>Opiniones de Clientes</h2>
