@@ -68,10 +68,10 @@ export const negociosDetalle: cardDT[] = [
         }
       ]
     },
-    caracteristicas: [{
-      nombre: "Ambiente",
+    servicios: {
+      servicio: "Ambiente",
       items: ["Familiar", "Terraza", "Pet-Friendly (solo en terraza)"]
-    }],
+    },
     ubicacion: 'Plazoleta de comidas, local 250',
     piso: 2,
     phone: 3447474,

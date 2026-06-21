@@ -36,5 +36,28 @@
     margin-bottom: 8px;
     font-size: 2.5rem; /* Hacemos la fuente un poco más grande */
     font-weight: 600;
+    white-space: normal; /* Asegura que el texto baje de línea */
+    word-break: break-word;
+  }
+  
+  .toolbar-content p {
+    white-space: normal; /* Asegura que el texto baje de línea */
+  }
+
+  /* --- RESPONSIVIDAD PARA MÓVILES --- */
+  @media (max-width: 768px) {
+    .home-toolbar {
+        height: auto; /* Permite que crezca si el texto baja de renglón */
+        padding: 40px 16px; /* Más espacio en móviles */
+    }
+
+    .toolbar-content h1 {
+        font-size: 1.8rem; /* Tamaño adecuado para celulares */
+        line-height: 1.3;
+    }
+
+    .toolbar-content p {
+        font-size: 1rem;
+    }
   }
   
