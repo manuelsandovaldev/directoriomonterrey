@@ -4,16 +4,17 @@ import { TagsEnum } from '../enums/tags.enum';
 export interface cardInterface {
   id: string;
   title: string;
+  logo: string;
   categoria: CategoriasEnum;
   description: string;
   servicios: string[];
   ubicacion: string;
-  coordenadas?    : { lat: number; lng: number; };
-  estadoActivo?    : boolean;
+  coordenadas?: { lat: number; lng: number; };
+  estadoActivo?: boolean;
   piso: number;
   phone: number;
   horarios: {
-    dias: string;     
+    dias: string;
     apertura: number;
     cierre: number;
   }[];

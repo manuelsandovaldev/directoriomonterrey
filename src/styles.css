@@ -1,7 +1,9 @@
 /* Puedes agregar estilos globales a este archivo, y también importar otros archivos de estilo */
 
 /* --- MODERN CSS RESET --- */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
     box-sizing: border-box;
 }
 
@@ -15,7 +17,11 @@ body {
     max-width: 100vw;
 }
 
-img, picture, video, canvas, svg {
+img,
+picture,
+video,
+canvas,
+svg {
     max-width: 100%;
 }
 
@@ -28,13 +34,15 @@ body {
 .spacer {
     flex: 1 1 auto;
 }
+
 .card-container {
     display: grid;
-    /* Tamaño por defecto para pantallas grandes */
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    /* Un poco más anchas a petición del usuario (330px) */
+    grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
     gap: 20px;
     padding: 20px;
-    max-width: 1200px;
+    /* max-width eliminado para que se acomoden de lado a lado en toda la pantalla */
+    max-width: none;
     box-sizing: border-box;
     width: 100%;
 }

@@ -1,10 +1,10 @@
 <mat-card class="example-card" appearance="outlined">
   <mat-card-header>
-    <div mat-card-avatar class="example-header-image"></div>
+    <img mat-card-avatar [src]="conector().logo" alt="Logo de {{ conector().title }}" style="object-fit: cover;">
     <mat-card-title style="color: black;">{{ conector().title }}</mat-card-title>
     <!-- CAMBIO: Ahora el botón llama a onCardClick() en lugar de openDialog() -->
     <button mat-icon-button class="more-button" (click)="onCardClick()" aria-label="Open details">
-      <mat-icon>more_vert</mat-icon>
+      <mat-icon>open_in_new</mat-icon>
     </button>
   </mat-card-header>
   <img mat-card-image [src]="conector().imagenes[0]" alt="Photo of {{ conector().title }}">

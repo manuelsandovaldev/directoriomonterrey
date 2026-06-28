@@ -4,6 +4,7 @@ import { TagsEnum } from '../enums/tags.enum';
 export interface cardDT {
   id: string;
   title: string;
+  logo: string;
   categoria: CategoriasEnum;
   description: string;
   servicios?: {

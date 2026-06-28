@@ -9,6 +9,11 @@
 
   /* Transición para una animación suave */
   transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
+
+  /* --- Magia Flexbox para Igualar Tamaños --- */
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 /* Efecto al pasar el ratón por encima */
@@ -20,9 +25,18 @@
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
 }
 
-.example-header-image {
-  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
-  background-size: cover;
+.example-card .mat-mdc-card-image {
+  height: 250px; /* Aumentamos el alto de la imagen como pediste */
+  width: 100%;
+  object-fit: cover;
+}
+
+.example-card mat-card-content {
+  flex-grow: 1; /* Esto hace que el contenido se estire para empujar el footer hacia abajo */
+}
+
+.example-card mat-card-actions {
+  margin-top: auto; /* Empuja las acciones siempre al fondo */
 }
 
 .more-button {
