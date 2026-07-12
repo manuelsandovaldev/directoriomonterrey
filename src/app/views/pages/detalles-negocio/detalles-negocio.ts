@@ -18,9 +18,26 @@ import { negociosDetalle } from '../../../data/datosDT';
 export class DetallesNegocio {
   public id = input<string | undefined>();
   public selectedImageIndex = signal<number | null>(null);
+  public activeCarouselIndex = signal<number>(0);
 
   private touchStartX = 0;
   private touchEndX = 0;
+
+  public onCarouselScroll(event: Event) {
+    const element = event.target as HTMLElement;
+    const scrollLeft = element.scrollLeft;
+    const width = element.clientWidth;
+    const index = Math.round(scrollLeft / width);
+    if (this.activeCarouselIndex() !== index) {
+      this.activeCarouselIndex.set(index);
+    }
+  }
+
+  public scrollToImage(index: number, container: HTMLElement) {
+    const width = container.clientWidth;
+    container.scrollTo({ left: index * width, behavior: 'smooth' });
+    this.activeCarouselIndex.set(index);
+  }
 
   public businessDetails = computed<cardDT | undefined>(() => {
     const currentId = this.id();

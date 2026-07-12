@@ -52,14 +52,25 @@
   }
 
   <section class="ambience-gallery">
-    <div class="image-grid">
-      @for (img of business.imagenes; track img; let i = $index) {
-      <div class="gallery-card" (click)="openLightbox(i)" style="cursor: pointer;">
-        <img [src]="img" [alt]="business.title + ' ambiente'">
-        <div class="gallery-overlay">
-          <span class="material-icons">zoom_in</span>
+    <div class="carousel-container" #carouselContainer (scroll)="onCarouselScroll($event)">
+      <div class="image-grid-carousel">
+        @for (img of business.imagenes; track img; let i = $index) {
+        <div class="gallery-card" (click)="openLightbox(i)">
+          <img [src]="img" [alt]="business.title + ' ambiente'">
+          <div class="gallery-overlay">
+            <span class="material-icons">zoom_in</span>
+          </div>
         </div>
+        }
       </div>
+    </div>
+    
+    <div class="carousel-dots">
+      @for (img of business.imagenes; track img; let i = $index) {
+        <div class="dot" 
+             [class.active]="activeCarouselIndex() === i"
+             (click)="scrollToImage(i, carouselContainer)">
+        </div>
       }
     </div>
   </section>

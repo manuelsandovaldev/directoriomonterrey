@@ -156,16 +156,22 @@ span.material-icons {
   font-weight: bold;
 }
 
-/* --- GALERÍA CON LIGHTBOX --- */
+/* --- GALERÍA / CARRUSEL --- */
 .ambience-gallery {
   padding: 3rem 1.7rem 1.5rem 1.7rem;
   display: block;
 }
 
-.image-grid {
+/* POR DEFECTO (PC): Grid de 3 imágenes */
+.carousel-container {
+  width: 100%;
+}
+
+.image-grid-carousel {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
+  width: 100%;
 }
 
 .gallery-card {
@@ -173,18 +179,25 @@ span.material-icons {
   overflow: hidden;
   border-radius: 32px;
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
-  /* Sombra más profunda */
+  cursor: pointer;
+  width: 100%;
 }
 
-.image-grid img {
+.image-grid-carousel img {
   width: 100%;
-  height: 580px;
+  height: 580px; /* Altura original para PC */
   object-fit: cover;
   transition: transform 0.4s ease;
+  display: block;
 }
 
 .gallery-card:hover img {
   transform: scale(1.05);
+}
+
+/* Ocultar puntitos en PC */
+.carousel-dots {
+  display: none;
 }
 
 .gallery-overlay {
@@ -641,7 +654,7 @@ span.material-icons {
 
   .business-header-wrapper {
     margin: 0 0.8rem;
-    border-radius: 0 0 30px 30px;
+    border-radius: 24px; /* Bordes redondeados en todas las esquinas, no solo abajo */
   }
 
   .business-header {
@@ -655,8 +668,16 @@ span.material-icons {
   }
 
   .info-container h1 {
-    font-size: 2.2rem;
+    font-size: 1.8rem; /* Reducido de 2.2rem */
     word-break: break-word;
+  }
+
+  .info-container .description {
+    font-size: 1rem; /* Reducido de 1.2rem */
+  }
+
+  .contact-info {
+    font-size: 0.95rem; /* Reducido de 1.05rem */
   }
 
   .logo-container img {
@@ -664,12 +685,58 @@ span.material-icons {
     height: 150px !important;
   }
 
-  .image-grid {
-    grid-template-columns: 1fr;
+  /* En móvil, cambiamos a Carrusel */
+  .carousel-container {
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding-bottom: 1rem;
+  }
+  
+  .carousel-container::-webkit-scrollbar {
+    display: none;
   }
 
-  .image-grid img {
-    height: 400px;
+  .image-grid-carousel {
+    display: flex; /* Cambia de grid a flex */
+    gap: 1.5rem;
+    width: max-content; /* Deja que crezca a la derecha */
+  }
+
+  .gallery-card {
+    scroll-snap-align: center;
+    width: calc(100vw - 3.4rem);
+    flex-shrink: 0;
+  }
+
+  .image-grid-carousel img {
+    height: 350px;
+  }
+  
+  /* Mostrar puntitos en móvil */
+  .carousel-dots {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-top: 0.5rem;
+  }
+  
+  .carousel-dots .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #cbd5e1;
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+
+  .carousel-dots .dot.active {
+    background-color: #3b82f6;
+    width: 16px;
+    border-radius: 8px;
   }
 
   /* BOTÓN CTA FLOTANTE (STICKY) EN MÓVILES */
@@ -679,7 +746,7 @@ span.material-icons {
     left: 0;
     right: 0;
     margin: 0;
-    padding: 15px 20px;
+    padding: 10px 15px; /* Reducimos el padding exterior para robar menos pantalla */
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
     z-index: 1000;
@@ -687,13 +754,44 @@ span.material-icons {
   }
 
   .go-to-order-btn {
-    padding: 1rem;
+    padding: 0.9rem; /* Un punto intermedio para que sea fácil de tocar */
+    font-size: 1.15rem; /* Texto un poco más grande */
+    border-radius: 14px;
+  }
+  
+  .cart-icon-svg {
+    width: 24px; /* Ícono también un poco más grande */
+    height: 24px;
+  }
+
+  .content-section h2 {
     font-size: 1.2rem;
-    border-radius: 16px;
+  }
+
+  .chip-card {
+    padding: 0.6rem 1rem;
+  }
+
+  .chip-card span:not(.material-icons) {
+    font-size: 0.9rem;
+  }
+
+  .big-score {
+    font-size: 3rem;
+  }
+
+  .review-text {
+    font-size: 0.9rem;
   }
 
   .dynamic-content {
+    padding-top: 1rem; /* Reducimos el enorme espacio superior */
     padding-bottom: 100px !important; /* Espacio extra para que el footer no quede tapado por el botón */
+  }
+
+  .reviews-section {
+    margin-top: 1rem;
+    padding-top: 2rem;
   }
 
   .nav-lightbox-btn {

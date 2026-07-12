@@ -1,10 +1,66 @@
-<!-- Solo tienes que añadir class="home-toolbar" aquí -->
-<mat-toolbar class="home-toolbar">
-    <div class="toolbar-content">
-        <br>
-      <h1>Bienvenido a Directorio Monterrey</h1>
-      <br>
-      <p>Aqui encontraras todos los locales de este centro comercial</p>
-    </div>
-  </mat-toolbar>
+<main class="home-container">
   
+  <!-- HERO SECTION -->
+  <section class="hero-section">
+    <div class="hero-content">
+      <h1 class="hero-title">
+        <span class="greeting">Bienvenido a</span>
+        <span class="city">Monterrey</span>
+      </h1>
+      <p class="hero-subtitle">Descubre los mejores locales, eventos y ofertas en el corazón de la ciudad.</p>
+    </div>
+  </section>
+
+  <!-- EVENT CAROUSEL (CARRUSEL PRINCIPAL) -->
+  <section class="events-section">
+    <div class="events-carousel-container">
+      <div class="events-track">
+        @for (banner of banners; track banner.id) {
+        <div class="event-card">
+          <img [src]="banner.image" [alt]="banner.title" class="event-image">
+          <div class="event-overlay">
+            <span class="event-tag">{{ banner.tag }}</span>
+            <div class="event-info">
+              <h2>{{ banner.title }}</h2>
+              <p>{{ banner.subtitle }}</p>
+            </div>
+          </div>
+        </div>
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- DISCOUNTS SECTION -->
+  <section class="discounts-section">
+    <div class="discounts-header">
+      <div class="header-titles">
+        <h2>🔥 Descuentos</h2>
+        <p>Aprovecha estas ofertas exclusivas</p>
+      </div>
+      <a routerLink="/ofertas" class="ver-mas-btn">Ver Más <span class="material-icons">arrow_forward</span></a>
+    </div>
+
+    <div class="discounts-carousel-container">
+      <div class="discounts-track">
+        @for (item of discounts; track item.id) {
+        <div class="discount-card">
+          <div class="discount-badge">-{{ item.discountPercentage }}%</div>
+          <img [src]="item.image" [alt]="item.productName" class="product-image">
+          <div class="discount-info">
+            <span class="store-name">{{ item.storeName }}</span>
+            <h3>{{ item.productName }}</h3>
+            <div class="prices">
+              <span class="old-price">${{ item.originalPrice | number }}</span>
+              <span class="new-price">${{ item.discountedPrice | number }}</span>
+            </div>
+          </div>
+        </div>
+        }
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<app-footer></app-footer>
