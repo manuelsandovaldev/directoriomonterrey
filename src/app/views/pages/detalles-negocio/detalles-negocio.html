@@ -64,13 +64,11 @@
         }
       </div>
     </div>
-    
+
     <div class="carousel-dots">
       @for (img of business.imagenes; track img; let i = $index) {
-        <div class="dot" 
-             [class.active]="activeCarouselIndex() === i"
-             (click)="scrollToImage(i, carouselContainer)">
-        </div>
+      <div class="dot" [class.active]="activeCarouselIndex() === i" (click)="scrollToImage(i, carouselContainer)">
+      </div>
       }
     </div>
   </section>
@@ -144,10 +142,9 @@
 </div>
 
 @if (selectedImageIndex() !== null) {
-<div class="lightbox-overlay" (click)="closeLightbox()"
-     (touchstart)="onTouchStart($event)"
-     (touchend)="onTouchEnd($event)">
-  
+<div class="lightbox-overlay" (click)="closeLightbox()" (touchstart)="onTouchStart($event)"
+  (touchend)="onTouchEnd($event)">
+
   <button class="close-lightbox-btn" (click)="closeLightbox()">
     <span class="material-icons">close</span>
   </button>

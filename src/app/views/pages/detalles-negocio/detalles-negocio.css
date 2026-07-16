@@ -73,6 +73,7 @@
   background: linear-gradient(135deg, #0f172a 0%, #3b82f6 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  background-clip: text;
   letter-spacing: -1px;
 }
 
@@ -185,7 +186,8 @@ span.material-icons {
 
 .image-grid-carousel img {
   width: 100%;
-  height: 580px; /* Altura original para PC */
+  height: 580px;
+  /* Altura original para PC */
   object-fit: cover;
   transition: transform 0.4s ease;
   display: block;
@@ -654,7 +656,8 @@ span.material-icons {
 
   .business-header-wrapper {
     margin: 0 0.8rem;
-    border-radius: 24px; /* Bordes redondeados en todas las esquinas, no solo abajo */
+    border-radius: 24px;
+    /* Bordes redondeados en todas las esquinas, no solo abajo */
   }
 
   .business-header {
@@ -668,16 +671,19 @@ span.material-icons {
   }
 
   .info-container h1 {
-    font-size: 1.8rem; /* Reducido de 2.2rem */
+    font-size: 1.8rem;
+    /* Reducido de 2.2rem */
     word-break: break-word;
   }
 
   .info-container .description {
-    font-size: 1rem; /* Reducido de 1.2rem */
+    font-size: 1rem;
+    /* Reducido de 1.2rem */
   }
 
   .contact-info {
-    font-size: 0.95rem; /* Reducido de 1.05rem */
+    font-size: 0.95rem;
+    /* Reducido de 1.05rem */
   }
 
   .logo-container img {
@@ -694,15 +700,17 @@ span.material-icons {
     scrollbar-width: none;
     padding-bottom: 1rem;
   }
-  
+
   .carousel-container::-webkit-scrollbar {
     display: none;
   }
 
   .image-grid-carousel {
-    display: flex; /* Cambia de grid a flex */
+    display: flex;
+    /* Cambia de grid a flex */
     gap: 1.5rem;
-    width: max-content; /* Deja que crezca a la derecha */
+    width: max-content;
+    /* Deja que crezca a la derecha */
   }
 
   .gallery-card {
@@ -714,7 +722,7 @@ span.material-icons {
   .image-grid-carousel img {
     height: 350px;
   }
-  
+
   /* Mostrar puntitos en móvil */
   .carousel-dots {
     display: flex;
@@ -723,7 +731,7 @@ span.material-icons {
     gap: 8px;
     margin-top: 0.5rem;
   }
-  
+
   .carousel-dots .dot {
     width: 10px;
     height: 10px;
@@ -746,7 +754,8 @@ span.material-icons {
     left: 0;
     right: 0;
     margin: 0;
-    padding: 10px 15px; /* Reducimos el padding exterior para robar menos pantalla */
+    padding: 10px 15px;
+    /* Reducimos el padding exterior para robar menos pantalla */
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
     z-index: 1000;
@@ -754,13 +763,16 @@ span.material-icons {
   }
 
   .go-to-order-btn {
-    padding: 0.9rem; /* Un punto intermedio para que sea fácil de tocar */
-    font-size: 1.15rem; /* Texto un poco más grande */
+    padding: 0.9rem;
+    /* Un punto intermedio para que sea fácil de tocar */
+    font-size: 1.15rem;
+    /* Texto un poco más grande */
     border-radius: 14px;
   }
-  
+
   .cart-icon-svg {
-    width: 24px; /* Ícono también un poco más grande */
+    width: 24px;
+    /* Ícono también un poco más grande */
     height: 24px;
   }
 
@@ -785,8 +797,10 @@ span.material-icons {
   }
 
   .dynamic-content {
-    padding-top: 1rem; /* Reducimos el enorme espacio superior */
-    padding-bottom: 100px !important; /* Espacio extra para que el footer no quede tapado por el botón */
+    padding-top: 1rem;
+    /* Reducimos el enorme espacio superior */
+    padding-bottom: 100px !important;
+    /* Espacio extra para que el footer no quede tapado por el botón */
   }
 
   .reviews-section {
