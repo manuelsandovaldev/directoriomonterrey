@@ -1,8 +1,7 @@
-@if (businessDetails(); as business) {
+@if (businessDetails(); as business) { <!-- Par entendida -->
 <div class="business-detail-page">
-
+  <!-- parte entendida mas que todo visual y css -->
   <div class="business-header-wrapper">
-    <div class="header-bg-blur" [style.background-image]="'url(' + business.img + ')'"></div>
     <header class="business-header">
       <div class="header-main-info">
         <div class="logo-container">
@@ -25,7 +24,7 @@
           </div>
         </div>
       </div>
-
+      <!-- Parte entendida lee en la base de datos y agrega un "LI" por cada item en la base de datos -->
       <div class="business-hours-card">
         <h3>🕒 Horarios de Atención</h3>
         <ul class="hours-list">
@@ -37,6 +36,7 @@
     </header>
   </div>
 
+  <!-- Parte entendida utiliza la funcion busniess que lo que hace es leer la base de datos y selecciona el dato servicios para mostrar los servicios  -->
   @if (business.servicios) {
   <section class="content-section chips-section-wrapper" style="padding: 2rem 1.7rem 0 1.7rem; margin-bottom: 0;">
     <h2 style="margin-bottom: 1.5rem;">{{ business.servicios.servicio }}</h2>
@@ -50,7 +50,7 @@
     </div>
   </section>
   }
-
+  <!-- Parte entendida utiliza mas que todo "for" para saber cual imagen esta viendo para saber el el puntico azul y el scrol usa una funcion para saber cuanto mide la pantalla y cual imagen se esta mostrando y cual mostrara-->
   <section class="ambience-gallery">
     <div class="carousel-container" #carouselContainer (scroll)="onCarouselScroll($event)">
       <div class="image-grid-carousel">

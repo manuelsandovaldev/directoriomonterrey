@@ -28,10 +28,7 @@
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
 }
 
-.header-bg-blur {
-  display: none;
-  /* Quitamos el fondo difuminado para un look más limpio */
-}
+
 
 .business-header {
   position: relative;
