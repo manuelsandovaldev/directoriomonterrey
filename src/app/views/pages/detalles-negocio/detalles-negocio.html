@@ -73,6 +73,7 @@
     </div>
   </section>
 
+  <!-- usamos una flexbox en css para el boton realizar tu pedido con svg y clases css de colores y animaciones -->
   <main class="dynamic-content">
 
     <section class="action-trigger-section">
@@ -85,6 +86,8 @@
         <span class="arrow-icon">➔</span>
       </button>
     </section>
+
+    <!-- usamos flexbox y grid para mostrar los comentarios y la puntuacion de los clientes -->
 
     <section class="reviews-section">
       <h2>Opiniones de Clientes</h2>
@@ -141,6 +144,8 @@
 
 </div>
 
+<!-- esta parte del codigo es la parte oscura de atras al abrir una foto de la galeria quedo tan abajo porque si se pone abajo justo despues de las 3 fotos al estar adentro de un div que tiene mas objetos corremos el riesgo de que la malla oscura quede abajo y un objeto titulo etc quede arriba al ponerlo casi al final no corremos riesgos -->
+
 @if (selectedImageIndex() !== null) {
 <div class="lightbox-overlay" (click)="closeLightbox()" (touchstart)="onTouchStart($event)"
   (touchend)="onTouchEnd($event)">
@@ -168,6 +173,8 @@
   </button>
 </div>
 }
+
+<!-- ese else se conecta con el if de arriba y es para que si no se encuentra el negocio muestre el mensaje de error y no deje continuar con la aplicacion -->
 
 } @else {
 <div class="not-found" style="text-align: center; padding: 100px 20px; color: white;">
