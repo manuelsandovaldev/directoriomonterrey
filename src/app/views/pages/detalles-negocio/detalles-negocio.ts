@@ -15,6 +15,9 @@ import { negociosDetalle } from '../../../data/datosDT';
   styleUrls: ['./detalles-negocio.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
+
+// aqui se usa un signal que resive el id al entrar a cada negocio usando el input y lo busca en la base de datos para poder mostrarlo o si no se encuentra muestra undefined tambien aqui se guardan los datos de las 3 imagenes a cual entraste para mostrar la siguiente en los botones y recibe los datos para pintar los punticos en celular 
+
 export class DetallesNegocio {
   public id = input<string | undefined>();
   public selectedImageIndex = signal<number | null>(null);
@@ -22,6 +25,8 @@ export class DetallesNegocio {
 
   private touchStartX = 0;
   private touchEndX = 0;
+
+  // aqui se calcula donde estas en la app para pintar los punticos para saber la posicion y la animacion en los punticos de la galeria y los de abajo el math round es para redondear el numero a un numero completo como 1, 2 en vez de 1,7 etc para que la funcion de arriba reciba el numero mas facil 
 
   public onCarouselScroll(event: Event) {
     const element = event.target as HTMLElement;
