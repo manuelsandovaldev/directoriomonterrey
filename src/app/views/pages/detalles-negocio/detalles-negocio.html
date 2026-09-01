@@ -1,4 +1,5 @@
-@if (businessDetails(); as business) { <!-- Par entendida -->
+@if (businessDetails(); as business) {
+<!-- Esta Funcion esta conectada con el ts exactamente con esta funcion  public businessDetails = computed<cardDT | undefined>(() => { -->
 <div class="business-detail-page">
   <!-- parte entendida mas que todo visual y css -->
   <div class="business-header-wrapper">
@@ -64,6 +65,8 @@
         }
       </div>
     </div>
+
+    <!-- si el cliente hace scroll y en la funcion activecarouselindex aun es 1,5 y no a pasado a 2 porque esta justo en el medio no es igual porque en el ts siempre es un numero entero  por una funcion especifica -->
 
     <div class="carousel-dots">
       @for (img of business.imagenes; track img; let i = $index) {

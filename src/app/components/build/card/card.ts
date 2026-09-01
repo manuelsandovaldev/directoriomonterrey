@@ -16,7 +16,7 @@ import { cardInterface } from '../../../interfaces/card.interface';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Card {
-  // ENTRADA: Recibe los datos del negocio. Esto no se ha cambiado.
+  // ENTRADA: Recibe los datos del negocio con un signal. Esto no se ha cambiado.
   public conector = input.required<cardInterface>();
 
   // SALIDA: Creamos un emisor que notificará el ID (string) del negocio.
@@ -27,7 +27,7 @@ export class Card {
   public faFacebook = faFacebook;
 
   // El constructor ahora está limpio, ya no necesita 'MatDialog'.
-  constructor() {}
+  constructor() { }
 
   // Esta es la NUEVA función que se llamará desde el botón en el HTML.
   public onCardClick(): void {
