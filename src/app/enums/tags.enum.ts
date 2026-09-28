@@ -19,7 +19,7 @@ export enum TagsEnum {
   CELULARES = 'Celulares',
   ACCESORIOS_TEC = 'Accesorios',
   OFICINA = 'Para la Oficina',
-  
+
   // --- Servicios ---
   SALUD = 'Salud y Bienestar',
   BELLEZA = 'Belleza y Cuidado Personal',

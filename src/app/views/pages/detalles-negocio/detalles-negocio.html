@@ -154,14 +154,17 @@
   (touchend)="onTouchEnd($event)">
 
   <button class="close-lightbox-btn" (click)="closeLightbox()">
+    <!-- este boton sirve para cerrar la malla y la funcion se detiene -->
     <span class="material-icons">close</span>
   </button>
 
   <button class="nav-lightbox-btn prev-btn" (click)="prevImage($event)">
+    <!-- este boton sirve para retroceder la foto -->
     <span class="material-icons">chevron_left</span>
   </button>
 
   <div class="lightbox-content-wrapper" (click)="$event.stopPropagation()">
+    <!-- aqui lo que hace es que al darle clik ala imagen no haga nada si no que al darle a fuera de la imagen en la malla negra se detanga -->
     <div class="lightbox-track" [style.transform]="'translateX(-' + (selectedImageIndex()! * 100) + 'vw)'">
       @for (img of businessDetails()!.imagenes; track img) {
       <div class="lightbox-slide">
@@ -172,6 +175,7 @@
   </div>
 
   <button class="nav-lightbox-btn next-btn" (click)="nextImage($event)">
+    <!-- este boton sirve para adelantar la foto -->
     <span class="material-icons">chevron_right</span>
   </button>
 </div>
