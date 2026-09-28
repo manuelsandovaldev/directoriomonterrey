@@ -1,5 +1,17 @@
-<div class="card-container">
-  @for (item of locals(); track $index) {
-    <app-card [conector]="item" (cardClick)="onCardClicked($event)"></app-card>
-  }
+<div class="locals-page-container">
+  <mat-tab-group mat-align-tabs="start" dynamicHeight>
+    @for (categoria of categoriasActivas(); track categoria) {
+      <mat-tab [label]="categoria">
+        <div class="category-locals">
+          @for (item of localsByCategory()[categoria]; track item.id) {
+            <app-card [conector]="item" (cardClick)="onCardClicked($event)"></app-card>
+          } @empty {
+            <div class="empty-state">
+              <p>No hay locales disponibles en esta categoría.</p>
+            </div>
+          }
+        </div>
+      </mat-tab>
+    }
+  </mat-tab-group>
 </div>
