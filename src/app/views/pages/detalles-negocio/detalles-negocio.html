@@ -1,172 +1,202 @@
 @if (businessDetails(); as business) {
-<!-- Esta Funcion esta conectada con el ts exactamente con esta funcion  public businessDetails = computed<cardDT | undefined>(() => { -->
-<div class="business-detail-page">
-  <!-- parte entendida mas que todo visual y css -->
-  <div class="business-header-wrapper">
-    <header class="business-header">
-      <div class="header-main-info">
-        <div class="logo-container">
-          <img [src]="business.img" [alt]="business.title">
-        </div>
+<div class="wa-profile-container">
 
-        <div class="info-container">
-          <h1>{{ business.title }}</h1>
-          <p class="description">{{ business.description }}</p>
-
-          <ul class="contact-info">
-            <li><strong>Ubicación:</strong> {{ business.ubicacion }}</li>
-            <li><strong>Teléfono:</strong> {{ business.phone }}</li>
-          </ul>
-
-          <div class="social-icons">
-            <span class="material-icons">public</span>
-            <span class="material-icons">thumb_up</span>
-            <span class="material-icons">chat</span>
-          </div>
-        </div>
-      </div>
-      <!-- Parte entendida lee en la base de datos y agrega un "LI" por cada item en la base de datos -->
-      <div class="business-hours-card">
-        <h3>🕒 Horarios de Atención</h3>
-        <ul class="hours-list">
-          @for (horario of business.horarios; track horario.dias) {
-          <li><span>{{ horario.dias }}</span> <strong>{{ horario.apertura }}:00 - {{ horario.cierre }}:00</strong></li>
-          }
-        </ul>
-      </div>
-    </header>
-  </div>
-
-  <!-- Parte entendida utiliza la funcion busniess que lo que hace es leer la base de datos y selecciona el dato servicios para mostrar los servicios  -->
-  @if (business.servicios) {
-  <section class="content-section chips-section-wrapper" style="padding: 2rem 1.7rem 0 1.7rem; margin-bottom: 0;">
-    <h2 style="margin-bottom: 1.5rem;">{{ business.servicios.servicio }}</h2>
-    <div class="chips-container-layout">
-      @for (item of business.servicios.items; track item) {
-      <div class="chip-card">
-        <span class="material-icons">check_circle</span>
-        <span>{{ item }}</span>
-      </div>
-      }
+  <!-- Header Section (WhatsApp Contact Info Style) -->
+  <header class="wa-header">
+    <div class="wa-cover-image" [style.background-image]="'url(' + business.imagenes[0] + ')'"></div>
+    
+    <div class="wa-avatar-container">
+      <img [src]="business.img" [alt]="business.title" class="wa-avatar">
     </div>
-  </section>
-  }
-  <!-- Parte entendida utiliza mas que todo "for" para saber cual imagen esta viendo para saber el el puntico azul y el scrol usa una funcion para saber cuanto mide la pantalla y cual imagen se esta mostrando y cual mostrara-->
-  <section class="ambience-gallery">
-    <div class="carousel-container" #carouselContainer (scroll)="onCarouselScroll($event)">
-      <div class="image-grid-carousel">
+    
+    <h1 class="wa-title">{{ business.title }}</h1>
 
-        @for (img of business.imagenes; track img; let i = $index) {
-
-        <div class="gallery-card" (click)="openLightbox(i)">
-          <img [src]="img" [alt]="business.title + ' ambiente'">
-          <div class="gallery-overlay">
-            <span class="material-icons">zoom_in</span>
-          </div>
-        </div>
-        }
-      </div>
-    </div>
-
-    <!-- si el cliente hace scroll y en la funcion activecarouselindex aun es 1,5 y no a pasado a 2 porque esta justo en el medio no es igual porque en el ts siempre es un numero entero  por una funcion especifica -->
-
-    <div class="carousel-dots">
-      @for (img of business.imagenes; track img; let i = $index) {
-      <div class="dot" [class.active]="activeCarouselIndex() === i" (click)="scrollToImage(i, carouselContainer)">
-      </div>
-      }
-    </div>
-  </section>
-
-  <!-- usamos una flexbox en css para el boton realizar tu pedido con svg y clases css de colores y animaciones -->
-  <main class="dynamic-content">
-
-    <section class="action-trigger-section">
-      <button type="button" class="go-to-order-btn">
-        <svg class="cart-icon-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-          <path
-            d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z" />
-        </svg>
-        Realizar tu Pedido
-        <span class="arrow-icon">➔</span>
+    <div class="wa-actions">
+      <button mat-fab extended color="primary" class="wa-action-btn wa-btn-favorite">
+        <mat-icon>favorite_border</mat-icon>
+        Favoritos
       </button>
-    </section>
+      <button mat-fab extended color="primary" class="wa-action-btn wa-btn-share">
+        <mat-icon>reply</mat-icon>
+        Compartir
+      </button>
+      <button mat-fab extended color="primary" class="wa-action-btn wa-btn-whatsapp">
+        <mat-icon>chat</mat-icon>
+        Contáctanos
+      </button>
+    </div>
+  </header>
 
-    <!-- usamos flexbox y grid para mostrar los comentarios y la puntuacion de los clientes -->
-
-    <section class="reviews-section">
-      <h2>Opiniones de Clientes</h2>
-      <div class="reviews-layout">
-
-        <div class="reviews-score-card">
-          <div class="big-score">{{ business.estrellas || '4.5' }}</div>
-          <div class="stars-row">
-            <span class="material-icons">star</span>
-            <span class="material-icons">star</span>
-            <span class="material-icons">star</span>
-            <span class="material-icons">star</span>
-            <span class="material-icons">star_half</span>
-          </div>
-          <p>Basado en opiniones de la comunidad</p>
-        </div>
-
-        <div class="reviews-grid">
-          <div class="review-card">
-            <div class="review-header">
-              <div class="user-avatar">AM</div>
-              <div class="user-meta">
-                <h4>Andrés Mendoza</h4>
-                <div class="user-stars">
-                  <span class="material-icons">star</span><span class="material-icons">star</span><span
-                    class="material-icons">star</span><span class="material-icons">star</span><span
-                    class="material-icons">star</span>
-                </div>
-              </div>
+  <!-- Angular Material Tabs -->
+  <mat-tab-group class="wa-tabs" mat-stretch-tabs="false" mat-align-tabs="center" dynamicHeight>
+    
+    <!-- TAB 1: Información -->
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <mat-icon class="wa-tab-icon">info</mat-icon>
+        Info
+      </ng-template>
+      
+      <div class="wa-tab-content">
+        <!-- List Items (WhatsApp Style) -->
+        <div class="wa-list">
+          <!-- Description -->
+          <div class="wa-list-item">
+            <mat-icon class="wa-list-icon">description</mat-icon>
+            <div class="wa-list-text">
+              <span class="wa-text-primary">Descripción del negocio</span>
+              <span class="wa-text-secondary">{{ business.description }}</span>
             </div>
-            <p class="review-text">¡Excelente concepto! Recomiendo muchísimo sus servicios.</p>
           </div>
 
-          <div class="review-card">
-            <div class="review-header">
-              <div class="user-avatar">KG</div>
-              <div class="user-meta">
-                <h4>Karla Gómez</h4>
-                <div class="user-stars">
-                  <span class="material-icons">star</span><span class="material-icons">star</span><span
-                    class="material-icons">star</span><span class="material-icons">star</span><span
-                    class="material-icons">star_outline</span>
-                </div>
-              </div>
+          <!-- Location -->
+          <div class="wa-list-item">
+            <mat-icon class="wa-list-icon">location_on</mat-icon>
+            <div class="wa-list-text">
+              <span class="wa-text-primary location-text">{{ business.ubicacion }}</span>
             </div>
-            <p class="review-text">Muy buena atención y los productos son de primera. Definitivamente volveré.</p>
+          </div>
+
+          <!-- Hours -->
+          <div class="wa-list-item">
+            <mat-icon class="wa-list-icon">schedule</mat-icon>
+            <div class="wa-list-text">
+              <span class="wa-text-primary">Horarios de Atención</span>
+              <ul class="wa-hours-list">
+                @for (horario of business.horarios; track horario.dias) {
+                <li>
+                  <span class="day">{{ horario.dias }}</span> 
+                  <span class="time">{{ horario.apertura }}:00 - {{ horario.cierre }}:00</span>
+                </li>
+                }
+              </ul>
+            </div>
           </div>
         </div>
-
       </div>
-    </section>
+    </mat-tab>
 
-  </main>
+    @if (business.servicios) {
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <mat-icon class="wa-tab-icon">list</mat-icon>
+        Productos
+      </ng-template>
+      
+      <div class="wa-tab-content">
+        <div class="wa-products-container">
+          @for (item of business.servicios.items; track item) {
+          <div class="wa-horizontal-card">
+            <div class="card-content-left">
+              <img [src]="business.img" alt="Producto" class="card-product-img">
+              <div class="card-info">
+                <span class="card-title">{{ item }}</span>
+              </div>
+            </div>
+            <div class="card-actions">
+              <mat-icon class="action-icon wa-product-whatsapp" style="margin-right: 10px;">chat</mat-icon>
+              <mat-icon class="action-icon">open_in_new</mat-icon>
+            </div>
+          </div>
+          }
+        </div>
+      </div>
+    </mat-tab>
+    }
 
+    <!-- TAB 3: Galería -->
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <mat-icon class="wa-tab-icon">photo_library</mat-icon>
+        Galería
+      </ng-template>
+      
+      <div class="wa-tab-content">
+        <div class="wa-gallery-grid">
+          @for (img of business.imagenes; track img; let i = $index) {
+          <div class="wa-gallery-card" (click)="openLightbox(i)">
+            <img [src]="img" [alt]="business.title + ' ambiente'">
+            <div class="wa-gallery-overlay">
+              <mat-icon>zoom_in</mat-icon>
+            </div>
+          </div>
+          }
+        </div>
+      </div>
+    </mat-tab>
+
+    <!-- TAB 4: Reseñas -->
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <mat-icon class="wa-tab-icon">star</mat-icon>
+        Reseñas
+      </ng-template>
+      
+      <div class="wa-tab-content">
+        <div class="wa-reviews-container">
+          <div class="wa-score-section">
+            <div class="wa-big-score">{{ business.estrellas || '4.5' }}</div>
+            <div class="wa-stars-row">
+              <mat-icon>star</mat-icon>
+              <mat-icon>star</mat-icon>
+              <mat-icon>star</mat-icon>
+              <mat-icon>star</mat-icon>
+              <mat-icon>star_half</mat-icon>
+            </div>
+            <p>Basado en opiniones</p>
+          </div>
+
+          <div class="wa-review-list">
+            <div class="wa-review-card">
+              <div class="wa-reviewer-info">
+                <div class="wa-avatar-small">AM</div>
+                <div>
+                  <h4>Andrés Mendoza</h4>
+                  <div class="wa-stars-small">
+                    <mat-icon>star</mat-icon><mat-icon>star</mat-icon><mat-icon>star</mat-icon><mat-icon>star</mat-icon><mat-icon>star</mat-icon>
+                  </div>
+                </div>
+              </div>
+              <p>¡Excelente concepto! Recomiendo muchísimo sus servicios.</p>
+            </div>
+
+            <div class="wa-review-card">
+              <div class="wa-reviewer-info">
+                <div class="wa-avatar-small">KG</div>
+                <div>
+                  <h4>Karla Gómez</h4>
+                  <div class="wa-stars-small">
+                    <mat-icon>star</mat-icon><mat-icon>star</mat-icon><mat-icon>star</mat-icon><mat-icon>star</mat-icon><mat-icon>star_border</mat-icon>
+                  </div>
+                </div>
+              </div>
+              <p>Muy buena atención y los productos son de primera. Definitivamente volveré.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+
+  <!-- Floating Action Button for Ordering -->
+  <button mat-fab extended class="wa-fab-order">
+    <mat-icon>shopping_cart</mat-icon>
+    Realizar tu Pedido
+  </button>
 </div>
 
-<!-- esta parte del codigo es la parte oscura de atras al abrir una foto de la galeria quedo tan abajo porque si se pone abajo justo despues de las 3 fotos al estar adentro de un div que tiene mas objetos corremos el riesgo de que la malla oscura quede abajo y un objeto titulo etc quede arriba al ponerlo casi al final no corremos riesgos -->
-
+<!-- Lightbox / Galería Modal -->
 @if (selectedImageIndex() !== null) {
-<div class="lightbox-overlay" (click)="closeLightbox()" (touchstart)="onTouchStart($event)"
-  (touchend)="onTouchEnd($event)">
-
-  <button class="close-lightbox-btn" (click)="closeLightbox()">
-    <!-- este boton sirve para cerrar la malla y la funcion se detiene -->
-    <span class="material-icons">close</span>
+<div class="lightbox-overlay" (click)="closeLightbox()" (touchstart)="onTouchStart($event)" (touchend)="onTouchEnd($event)">
+  <button mat-icon-button class="close-lightbox-btn" (click)="closeLightbox()">
+    <mat-icon>close</mat-icon>
   </button>
 
-  <button class="nav-lightbox-btn prev-btn" (click)="prevImage($event)">
-    <!-- este boton sirve para retroceder la foto -->
-    <span class="material-icons">chevron_left</span>
+  <button mat-icon-button class="nav-lightbox-btn prev-btn" (click)="prevImage($event)">
+    <mat-icon>chevron_left</mat-icon>
   </button>
 
   <div class="lightbox-content-wrapper" (click)="$event.stopPropagation()">
-    <!-- aqui lo que hace es que al darle clik ala imagen no haga nada si no que al darle a fuera de la imagen en la malla negra se detanga -->
     <div class="lightbox-track" [style.transform]="'translateX(-' + (selectedImageIndex()! * 100) + 'vw)'">
       @for (img of businessDetails()!.imagenes; track img) {
       <div class="lightbox-slide">
@@ -176,17 +206,15 @@
     </div>
   </div>
 
-  <button class="nav-lightbox-btn next-btn" (click)="nextImage($event)">
-    <!-- este boton sirve para adelantar la foto -->
-    <span class="material-icons">chevron_right</span>
+  <button mat-icon-button class="nav-lightbox-btn next-btn" (click)="nextImage($event)">
+    <mat-icon>chevron_right</mat-icon>
   </button>
 </div>
 }
 
-<!-- ese else se conecta con el if de arriba y es para que si no se encuentra el negocio muestre el mensaje de error y no deje continuar con la aplicacion -->
-
 } @else {
-<div class="not-found" style="text-align: center; padding: 100px 20px; color: white;">
+<div class="wa-not-found">
+  <mat-icon class="wa-not-found-icon">error_outline</mat-icon>
   <h2>Negocio no encontrado</h2>
   <p>Lo sentimos, no pudimos encontrar los detalles que estás buscando.</p>
 </div>

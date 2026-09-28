@@ -1,8 +1,10 @@
-﻿import { ChangeDetectionStrategy, Component, computed, input, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, input, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 // Importamos MatIcon si vas a pintar los logos de los servicios
 import { MatIconModule } from '@angular/material/icon';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatButtonModule } from '@angular/material/button';
 
 import { cardDT } from '../../../interfaces/productoDT.interface';
 import { negociosDetalle } from '../../../data/datosDT';
@@ -10,7 +12,7 @@ import { negociosDetalle } from '../../../data/datosDT';
 @Component({
   selector: 'app-detalles-negocio',
   standalone: true,
-  imports: [CommonModule, RouterModule, MatIconModule],
+  imports: [CommonModule, RouterModule, MatIconModule, MatTabsModule, MatButtonModule],
   templateUrl: './detalles-negocio.html',
   styleUrls: ['./detalles-negocio.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
