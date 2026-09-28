@@ -64,12 +64,15 @@
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
-  scrollbar-width: none; /* Firefox */
-  padding-bottom: 1.5rem; /* Espacio para la sombra */
+  scrollbar-width: none;
+  /* Firefox */
+  padding-bottom: 1.5rem;
+  /* Espacio para la sombra */
 }
 
 .events-carousel-container::-webkit-scrollbar {
-  display: none; /* Chrome/Safari */
+  display: none;
+  /* Chrome/Safari */
 }
 
 .events-track {
@@ -108,7 +111,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.8) 100%);
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.8) 100%);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -220,7 +223,7 @@
   scroll-snap-align: start;
   flex-shrink: 0;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
-  border: 1px solid rgba(0,0,0,0.03);
+  border: 1px solid rgba(0, 0, 0, 0.03);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   cursor: pointer;
   display: flex;
@@ -300,43 +303,43 @@
   .hero-section {
     padding: 1.5rem 1.2rem;
   }
-  
+
   .hero-title .greeting {
     font-size: 1.5rem;
   }
-  
+
   .hero-title .city {
     font-size: 3rem;
   }
-  
+
   .events-section {
     padding: 0 1.2rem 2rem 1.2rem;
   }
-  
+
   .event-card {
     width: calc(100vw - 2.4rem);
     height: 320px;
     border-radius: 24px;
   }
-  
+
   .event-info h2 {
     font-size: 1.6rem;
   }
-  
+
   .discounts-section {
     padding: 1rem 1.2rem 3rem 1.2rem;
   }
-  
+
   .discounts-header {
     flex-direction: column;
     align-items: flex-start;
     gap: 1rem;
   }
-  
+
   .header-titles h2 {
     font-size: 1.6rem;
   }
-  
+
   .discount-card {
     width: 240px;
   }

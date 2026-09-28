@@ -45,7 +45,7 @@
   font-weight: 500;
 
   /* REDUCIDO: Acortamos la distancia entre la burbuja del icono y el texto */
-  gap: 1px !important;
+
   background: none !important;
   transition: color 0.4s ease;
 }
