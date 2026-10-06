@@ -1,11 +1,18 @@
 <mat-card class="example-card" appearance="outlined">
+  <div class="status-badge-corner">
+    <div class="status-badge" [class.is-open]="mockIsOpen" [class.is-closed]="!mockIsOpen">
+      <span class="status-dot"></span>
+      <span class="status-text">{{ mockIsOpen ? 'Abierto' : 'Cerrado' }}</span>
+    </div>
+  </div>
+
   <mat-card-header>
     <img mat-card-avatar [src]="conector().logo" alt="Logo de {{ conector().title }}" style="object-fit: cover;">
-    <mat-card-title style="color: black;">{{ conector().title }}</mat-card-title>
-    <!-- CAMBIO: Ahora el botón llama a onCardClick() en lugar de openDialog() -->
-    <button mat-icon-button class="more-button" (click)="onCardClick()" aria-label="Open details">
-      <mat-icon>open_in_new</mat-icon>
-    </button>
+    <mat-card-title style="color: black;">
+      <span style="word-wrap: break-word; white-space: normal;">
+        {{ conector().title }}
+      </span>
+    </mat-card-title>
   </mat-card-header>
   <img mat-card-image [src]="conector().imagenes[0]" alt="Photo of {{ conector().title }}">
   <mat-card-content>
@@ -14,20 +21,7 @@
     </p>
   </mat-card-content>
 
-  <mat-card-actions>
-    <button mat-button>LIKE</button>
-
-    <button mat-button>SHARE</button>
-
-    <a matIconButton href="https://www.instagram.com/" target="_blank" class="example-icon favorite-icon"
-      aria-label="Visita nuestro Instagram">
-      <fa-icon [icon]="faInstagram" size="lg"></fa-icon>
-    </a>
-
-    <a matIconButton href="https://www.facebook.com/" target="_blank" class="example-icon favorite-icon"
-      aria-label="Visita nuestro Facebook">
-      <fa-icon [icon]="faFacebook" size="lg"></fa-icon>
-    </a>
-
+  <mat-card-actions align="end">
+    <button mat-raised-button color="primary" class="btn-ver-mas" (click)="onCardClick()">Ver más</button>
   </mat-card-actions>
 </mat-card>

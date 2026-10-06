@@ -1,8 +1,11 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+
+import { LayoutService } from '../../../global/state/layout.service';
 
 @Component({
   selector: 'app-bar-navegation',
@@ -12,11 +15,12 @@ import { MatIconModule } from '@angular/material/icon';
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
     RouterModule,
-    MatToolbarModule,
+    MatSidenavModule,
+    MatListModule,
     MatButtonModule,
     MatIconModule
   ],
 })
-export class barNavegation {
-
+export class menuNavegat {
+  public layout = inject(LayoutService);
 }

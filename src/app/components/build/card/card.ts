@@ -2,15 +2,12 @@
 import { ChangeDetectionStrategy, Component, input, output } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
-import { MatIconModule } from '@angular/material/icon';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faInstagram, faFacebook } from '@fortawesome/free-brands-svg-icons';
 import { cardInterface } from '../../../interfaces/card.interface';
 
 @Component({
   selector: 'app-card',
   // Se elimina MatDialogModule de los imports
-  imports: [MatCardModule, MatButtonModule, FontAwesomeModule, MatIconModule],
+  imports: [MatCardModule, MatButtonModule],
   templateUrl: './card.html',
   styleUrl: './card.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -22,9 +19,8 @@ export class Card {
   // SALIDA: Creamos un emisor que notificará el ID (string) del negocio.
   public cardClick = output<string>();
 
-  // Iconos de redes sociales. Esto no cambia.
-  public faInstagram = faInstagram;
-  public faFacebook = faFacebook;
+  // Mock property para ver el resultado de abierto/cerrado como se pidió
+  public mockIsOpen = Math.random() > 0.5;
 
   // El constructor ahora está limpio, ya no necesita 'MatDialog'.
   constructor() { }

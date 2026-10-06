@@ -1,9 +1,17 @@
 <mat-toolbar color="primary">
 
   @if (showBackButton()) {
-  <app-btn-back></app-btn-back>
+    <app-btn-back></app-btn-back>
+  } @else {
+    <button mat-icon-button (click)="layout.toggleSidenav()">
+      <mat-icon>menu</mat-icon>
+    </button>
   }
-  <span class="app-title" [style.margin-left]="showBackButton() ? '8px' : '0'">Directorio Monterrey</span>
+  <div class="app-title-container" [style.margin-left]="showBackButton() ? '8px' : '0'">
+    <span class="app-title">Menú</span>
+    <span class="title-separator">/</span>
+    <span class="sub-title">Directorio Monterrey</span>
+  </div>
 
   <span class="spacer"></span>
 

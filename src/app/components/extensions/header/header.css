@@ -2,17 +2,42 @@
   flex: 1 1 auto;
 }
 
-.app-title {
-  font-weight: 600;
+.app-title-container {
+  display: flex;
+  align-items: center;
   margin-left: 15px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
+.app-title {
+  font-weight: 600;
+}
+
+.title-separator {
+  margin: 0 8px;
+  opacity: 0.7;
+  font-weight: 400;
+}
+
+.sub-title {
+  font-weight: 400;
+  opacity: 0.9;
+  font-size: 0.9em;
+}
+
 @media (max-width: 400px) {
+  .app-title-container {
+    margin-left: 5px;
+  }
   .app-title {
     font-size: 1.1rem;
-    margin-left: 5px;
+  }
+  .sub-title {
+    display: none; /* Ocultar el subtítulo en pantallas muy pequeñas */
+  }
+  .title-separator {
+    display: none;
   }
 }

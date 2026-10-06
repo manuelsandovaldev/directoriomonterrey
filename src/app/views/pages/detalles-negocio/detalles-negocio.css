@@ -2,8 +2,8 @@
   display: block;
   width: 100%;
   font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-  background-color: var(--color-wa-bg, #0b141a);
-  color: var(--color-wa-text, #e9edef);
+  background-color: var(--color-wa-bg, #ffffff);
+  color: var(--color-wa-text, #1e3a8a);
   min-height: 100vh;
   box-sizing: border-box;
   font-size: 1.05rem; /* slightly larger ui */
@@ -11,13 +11,13 @@
 
 /* Base colors reflecting WhatsApp Dark Mode with Blue Accent */
 .wa-profile-container {
-  --color-wa-bg: #0b141a;
-  --color-wa-bg-card: #111b21;
-  --color-wa-text: #e9edef;
-  --color-wa-text-secondary: #8696a0;
-  --color-wa-accent: #3b82f6; /* blue accent for dark mode */
-  --color-wa-accent-hover: #60a5fa;
-  --color-wa-divider: #222d34;
+  --color-wa-bg: #ffffff;
+  --color-wa-bg-card: #f9f9f9;
+  --color-wa-text: #1e3a8a;
+  --color-wa-text-secondary: #3b82f6;
+  --color-wa-accent: #2563eb; 
+  --color-wa-accent-hover: #1d4ed8;
+  --color-wa-divider: #e5e7eb;
 
   max-width: 850px; /* slightly larger */
   margin: 0 auto;
@@ -92,7 +92,7 @@
 .wa-action-btn {
   background-color: var(--color-wa-bg) !important;
   color: var(--color-wa-accent) !important;
-  border-radius: 14px !important;
+  border-radius: 50px !important;
   box-shadow: none !important;
   border: 1px solid var(--color-wa-divider);
   padding: 0 2.2rem !important;
@@ -404,6 +404,7 @@
   z-index: 100;
   font-weight: 600 !important;
   font-size: 1.1rem !important;
+  border-radius: 50px !important;
 }
 
 /* Lightbox Modal */

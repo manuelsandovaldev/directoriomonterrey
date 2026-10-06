@@ -1,0 +1,42 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav mode="side" [opened]="layout.sidenavOpened()" class="sidenav">
+    
+    <div class="drawer-header">
+      <img src="https://ui-avatars.com/api/?name=User&background=random" alt="Test profile photo" class="profile-photo">
+      <div class="profile-name">user</div>
+    </div>
+
+    <mat-nav-list class="spaced-nav-list">
+      <a mat-list-item routerLink="/home" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}" (click)="layout.sidenavOpened.set(false)">
+        <mat-icon matListItemIcon>home</mat-icon>
+        <div matListItemTitle>Home</div>
+      </a>
+
+      <a mat-list-item routerLink="/locals" routerLinkActive="active-link" (click)="layout.sidenavOpened.set(false)">
+        <mat-icon matListItemIcon>storefront</mat-icon>
+        <div matListItemTitle>Locales</div>
+      </a>
+
+      <a mat-list-item routerLink="/favorites" routerLinkActive="active-link" (click)="layout.sidenavOpened.set(false)">
+        <mat-icon matListItemIcon>favorite</mat-icon>
+        <div matListItemTitle>Favoritos</div>
+      </a>
+
+      <a mat-list-item routerLink="/offers" routerLinkActive="active-link" (click)="layout.sidenavOpened.set(false)">
+        <mat-icon matListItemIcon>local_offer</mat-icon>
+        <div matListItemTitle>Ofertas</div>
+      </a>
+
+      <a mat-list-item routerLink="/contac" routerLinkActive="active-link" (click)="layout.sidenavOpened.set(false)">
+        <mat-icon matListItemIcon>contact_support</mat-icon>
+        <div matListItemTitle>Contacto</div>
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <div class="layout-content">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

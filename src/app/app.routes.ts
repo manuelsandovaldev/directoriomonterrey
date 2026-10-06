@@ -1,5 +1,5 @@
 import { Routes } from '@angular/router';
-import { barNavegation } from './components/build/bar-navegation/bar-navegation';
+import { menuNavegation } from './components/build/menu-navegation/menu-navegation';
 import { LocalsComponent } from './views/pages/locals/locals';
 import { Contac } from './views/pages/contac/contac';
 import { Home } from './views/pages/home/home';
@@ -10,7 +10,7 @@ import { Offers } from './views/pages/offers/offers';
 export const routes: Routes = [
     {
         path: '',
-        component: barNavegation,
+        component: menuNavegation,
         children: [
             { path: '', component: Home },
             { path: 'home', component: Home },

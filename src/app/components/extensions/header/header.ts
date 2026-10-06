@@ -9,6 +9,7 @@ import { filter, map } from 'rxjs';
 import { BtnLunaSol } from '../btn-luna-sol/btn-luna-sol';
 import { ShareBtnComponent } from '../share-btn/share-btn';
 import { BtnBack } from '../btn-back/btn-back';
+import { LayoutService } from '../../../global/state/layout.service';
 
 @Component({
   selector: 'app-header',
@@ -20,6 +21,7 @@ import { BtnBack } from '../btn-back/btn-back';
 })
 export class HeaderComponent {
   private router = inject(Router);
+  public layout = inject(LayoutService);
 
   public showBackButton = toSignal(
     this.router.events.pipe(

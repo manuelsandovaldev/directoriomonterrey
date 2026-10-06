@@ -37,21 +37,89 @@
 
 .example-card mat-card-actions {
   margin-top: auto; /* Empuja las acciones siempre al fondo */
+  padding: 16px; /* Añadir padding extra en las acciones si se necesita */
 }
 
-.more-button {
+.btn-ver-mas {
+  font-size: 1.1rem !important;
+  padding: 8px 40px !important; /* Más padding horizontal */
+  font-weight: bold !important;
+  border-radius: 50px !important; /* Forma de píldora redonda en lugar de cuadrado */
+  min-width: 160px !important;
+}
+
+/* Status Badge Styles */
+.status-badge-corner {
   position: absolute;
-  top: 8px;
-  right: 8px;
+  top: 12px;
+  right: 12px;
+  z-index: 10;
 }
 
-/* Estos estilos son para los iconos que eliminamos, los podemos dejar por si se vuelven a usar */
-.example-icon.favorite-icon {
+.status-badge {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  border: 1px solid transparent;
+  /* Add background blur or opaque background in case it overlays image, though here it's in the white header space */
+  background: white;
 }
 
-.example-icon.favorite-icon fa-icon {
-  line-height: 0;
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-right: 6px;
 }
+
+.is-open {
+  background-color: rgba(76, 175, 80, 0.1);
+  color: #2e7d32;
+  border-color: rgba(76, 175, 80, 0.2);
+}
+
+.is-open .status-dot {
+  background-color: #4caf50;
+  box-shadow: 0 0 4px #4caf50;
+}
+
+.is-closed {
+  background-color: rgba(244, 67, 54, 0.1);
+  color: #c62828;
+  border-color: rgba(244, 67, 54, 0.2);
+}
+
+.is-closed .status-dot {
+  background-color: #f44336;
+  box-shadow: 0 0 4px #f44336;
+}
+
+/* --- Responsive Adjustments para Móviles --- */
+@media (max-width: 600px) {
+  /* Evitar que el título se encime con el badge en la esquina derecha */
+  .example-card mat-card-header {
+    padding-right: 100px; 
+  }
+
+  /* El botón ocupa el ancho disponible y no fuerza al componente a ensancharse */
+  .btn-ver-mas {
+    width: 100% !important;
+    min-width: unset !important;
+    padding: 10px 16px !important;
+    font-size: 1rem !important;
+  }
+
+  /* Ajustar la imagen para que no tome tanto espacio vertical en móviles */
+  .example-card .mat-mdc-card-image {
+    height: 200px;
+  }
+
+  /* Si el contenido de texto es muy largo, asegurarnos de que la tarjeta se comporte bien */
+  .example-card mat-card-content {
+    font-size: 0.9rem;
+  }
+}
+

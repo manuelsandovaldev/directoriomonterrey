@@ -1,0 +1,64 @@
+:host {
+  display: block;
+  height: 100vh;
+}
+
+.sidenav-container {
+  height: 100vh;
+  background-color: var(--mat-sidenav-container-background-color, #fafafa);
+}
+
+.sidenav {
+  width: 250px;
+  background-color: var(--mat-sidenav-content-background-color, white);
+  border-right: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.layout-content {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 16px;
+  height: 100%;
+  overflow: auto;
+}
+
+.active-link {
+  color: var(--color-corporativo, #3f51b5) !important;
+  font-weight: 600;
+  background-color: color-mix(in srgb, var(--color-corporativo, #3f51b5) 8%, transparent) !important;
+}
+
+.active-link mat-icon {
+  color: var(--color-corporativo, #3f51b5) !important;
+}
+
+.drawer-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 32px 16px 16px;
+  background-color: transparent;
+  color: #333;
+}
+
+.profile-photo {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 12px;
+  border: 2px solid var(--color-corporativo, #3f51b5);
+}
+
+.profile-name {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.spaced-nav-list {
+  padding-top: 16px;
+}
+
+.spaced-nav-list a[mat-list-item] {
+  margin-bottom: 8px;
+}
