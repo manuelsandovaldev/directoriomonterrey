@@ -9,8 +9,8 @@ import { LayoutService } from '../../../global/state/layout.service';
 
 @Component({
   selector: 'app-bar-navegation',
-  templateUrl: './bar-navegation.html',
-  styleUrls: ['./bar-navegation.css'],
+  templateUrl: './menu-navegation.html',
+  styleUrls: ['./menu-navegation.css'],
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
