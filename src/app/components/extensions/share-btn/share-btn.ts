@@ -1,5 +1,5 @@
 
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 
@@ -7,6 +7,7 @@ import { MatIconModule } from '@angular/material/icon';
   selector: 'app-share-btn',
   imports: [MatIconModule, MatButtonModule],
   templateUrl: './share-btn.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './share-btn.css'
 })
 export class ShareBtnComponent {

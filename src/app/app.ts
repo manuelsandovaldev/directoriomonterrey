@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, signal, ChangeDetectionStrategy } from '@angular/core';
 import { HeaderComponent } from './components/extensions/header/header';
 import { RouterOutlet } from '@angular/router';
 import { MatSidenavModule } from "@angular/material/sidenav";
@@ -9,6 +9,7 @@ import { MatSidenavModule } from "@angular/material/sidenav";
   standalone: true,
   providers: [],
   templateUrl: './app.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './app.css'
 })
 export class App {

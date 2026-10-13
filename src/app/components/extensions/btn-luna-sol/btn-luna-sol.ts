@@ -1,4 +1,4 @@
-import { Component, DOCUMENT, effect, inject, signal } from '@angular/core';
+import { Component, DOCUMENT, effect, inject, signal, ChangeDetectionStrategy } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 
@@ -11,6 +11,7 @@ export type Theme = 'light' | 'dark'; // esta linea exporta la clase "type" para
     MatIconModule    // Importamos IconModule de angular material.
   ],
   templateUrl: './btn-luna-sol.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './btn-luna-sol.css',
 })
 export class BtnLunaSol {
